@@ -1,0 +1,1042 @@
+﻿<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="このトピックでは、モバイルデバイス用のビデオをエンコードする方法について説明します。">
+
+  <title>iOS/モバイルエンコーディングガイド</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-ultra.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-super.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-black.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-bold.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.eot" type="font/eot">
+  <link data-react-helmet="true" rel="preload" as="font" href="https://files.brightcove.com/fonts/balto/baltoweb-medium.woff" type="font/woff">
+  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
+  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
+  <link rel="stylesheet" href="/assets/css/local.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
+  <script src="/assets/js/sajari-head.js"></script>
+</head>
+
+<body class="body">
+
+<header>
+  <div class="div-header">
+    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Zencoder_Logo.svg" alt="製品ロゴ" style="max-height: 100px;max-width: 232px;"/></a>
+<!-- GTranslate: https://gtranslate.io/ -->
+<select onchange="doGTranslate(this);"><option value="">言語の選択</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
+
+<script>
+/* <![CDATA[ */
+function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
+/* ]]> */
+</script>
+
+    <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
+      <option value="">ブライトコーブのその他のドキュメント</option>
+      
+        
+          <option value="https://support.brightcove.com">ドキュメントホーム</option>
+        
+      
+        
+          <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
+        
+      
+        
+          <option value="https://beacon.support.brightcove.com">ブライトコーブビーコン</option>
+        
+      
+        
+          <option value="https://campaign.support.brightcove.com">ブライトコーブキャンペーン</option>
+        
+      
+        
+          <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
+        
+      
+        
+          <option value="https://live.support.brightcove.com">Brightcove Live</option>
+        
+      
+        
+          <option value="https://gallery.support.brightcove.com">Brightcove Gallery</option>
+        
+      
+        
+          <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
+        
+      
+        
+          <option value="https://social.support.brightcove.com">ブライトコーブソーシャル</option>
+        
+      
+        
+          <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
+        
+      
+        
+          <option value="https://player.support.brightcove.com">ブライトコーブのプレーヤー開発</option>
+        
+      
+        
+          <option value="https://apis.support.brightcove.com">Video CloudプラットフォームAPI</option>
+        
+      
+        
+          <option value="https://sdks.support.brightcove.com">ビデオクラウドデバイス SDK</option>
+        
+      
+        
+          <option value="https://integrations.support.brightcove.com">統合および CMS コネクタ</option>
+        
+      
+        
+          <option value="https://general.support.brightcove.com">ビデオクラウドの一般情報</option>
+        
+      
+        
+          <option value="https://zencoder.support.brightcove.com">Zencoder</option>
+        
+      
+    </select>
+
+
+    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="サポート"/> サポートへのお問い合わせ</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="システムステータス"/> システムステータス</a></span> <br/>
+    
+  </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb arr-right">
+      
+      <li class="breadcrumb-item"><a href="/">ホーム</a></li>
+      
+      
+      
+      <li class="breadcrumb-item"><a href="/encoding-guides/">エンコーディングガイド</a></li>
+      
+      <li class="breadcrumb-item active" aria-current="page">iOS/モバイルエンコーディングガイド</li>
+    </ol>
+  </nav>
+</header>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-3 left-side-bar">
+        <nav class="sidenav" id="side_nav">
+          
+            
+            <h5><a href="/index.html">ホーム</a></h5>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/getting-started/index.html">はじめに<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/getting-started/overview-zencoder.html">概要</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/quick-start-zencoder.html">クイックスタート</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/getting-api-key.html">API キーの取得</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/output-settings.html">出力設定</a></li>
+                  
+                
+                  
+                    <li><a href="/getting-started/creating-multiple-outputs.html">複数の出力を作成する</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/general-information/index.html">一般情報<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/general-information/faq-basics.html">基本</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/faq-codecs-and-formats.html">コーデックと形式</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/faq-encoding.html">エンコーディング</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/faq-file-transfers.html">ファイル転送</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/faq-zencoder-pricing.html">Zencoder の価格設定</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/faq-rate-limiting.html">レート制限</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/supported-video-and-audio-formats-codecs-and-containers.html">サポートされているビデオおよびオーディオ形式</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/overview-context-aware-encoding.html">概要:コンテキスト認識エンコーディング</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/getting-notifications-when-videos-are-finished.html">動画が終了したときに通知を受け取る</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/how-zencoder-saves-your-files-when-uploads-fail.html">アップロードに失敗したときの Zencoder によるファイルの保存方法</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/using-zencoder-s3.html">S3 での Zencoder の使用</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/using-zencoder-azure.html">Azure での Zencoder の使用</a></li>
+                  
+                
+                  
+                    <li><a href="/general-information/using-zencoder-google-cloud-platform.html">Google クラウドストレージで Zencoder を使用する</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/references/index.html">参考文献<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/references/reference.html">API リファレンス</a></li>
+                  
+                
+                  
+                    <li><a href="/references/known-issues.html">既知の問題</a></li>
+                  
+                
+                  
+                    <li><a href="/references/release-notes.html">製品のアップデート</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/encoding-settings/index.html">エンコード設定<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/general/index.html">一般設定<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/general/encoding-settings-job.html">ジョブ設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general/encoding-settings-general-output-settings.html">一般出力設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general/cae-settings.html">CAE 設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html">条件付き出力設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general/encoding-settings-notifications.html">通知設定</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/general-audio-video/index.html">オーディオ/ビデオ設定<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html">オーディオ設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html">オーディオ処理の設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video.html">ビデオ設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html">ビデオ処理の設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html">ブロードキャスト設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html">フレームレートの設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html">レートコントロール設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html">解像度の設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html">セグメント化されたストリーミング設定</a></li>
+                        
+                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-transmuxing.html">トランスマルチシング設定</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/formats-codecs/index.html">形式とコーデック設定<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html">フォーマットとコーデックの設定</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-aac.html">AAC 設定</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-flv.html">FLV 設定</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html">HDR 設定</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html">H.264設定</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-mp4.html">MP4 設定</a></li>
+                        
+                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html">VP6設定</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/assets/index.html">メディアアセット設定<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/assets/encoding-settings-captions.html">キャプション設定</a></li>
+                        
+                        <li><a href="/encoding-settings/assets/encoding-settings-clips.html">クリップ設定</a></li>
+                        
+                        <li><a href="/encoding-settings/assets/encoding-settings-thumbnails.html">サムネイル設定</a></li>
+                        
+                        <li><a href="/encoding-settings/assets/encoding-settings-watermarks.html">透かしの設定</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/content-protection/index.html">コンテンツ保護の設定<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/content-protection/encoding-settings-encryption.html">暗号化の設定</a></li>
+                        
+                        <li><a href="/encoding-settings/content-protection/encoding-settings-decryption.html">復号化の設定</a></li>
+                        
+                        <li><a href="/encoding-settings/content-protection/encoding-settings-drm.html">DRM 設定</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/encoding-settings/sources-destinations/index.html">ソース/送信先設定<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-s3-settings.html">S3 の設定</a></li>
+                        
+                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-aspera.html">アスペラ設定</a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/encoding-guides/index.html">エンコードガイド<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/encoding-guides/advanced-audio-mapping-guide.html">オーディオマッピングガイド</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/as11-mxf.html">AS-11-MXFガイド</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/avc-intra-guide.html">AVC-イントラガイド</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/cae-guide.html">CAEガイド</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/creating-mp4-and-hls-outputs-together.html">トランスマルチシングガイド</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/dash-streaming-and-playlists.html">DASH ストリーミングとプレイリスト</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/h264-advanced-guide.html">H.264 アドバンスド・ガイド</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/hdr10-video-output.html">サポートされている HDR ビデオ形式</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/hevch265-guide.html">HEVC/H.265 ガイド</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/highwinds-smil.html">強風SMILガイド</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/html5-encoding.html">HTML5エンコーディング</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/http-live-segmented-streaming-and-playlists.html">HLS ストリーミングとプレイリスト</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/http-live-streaming-using-fragmented-mp4.html">断片化されたMP4を使用する HLS </a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/iosmobile-encoding.html">iOS/モバイルエンコーディングガイド</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/microsoft-smooth-streaming.html">マイクロソフトスムーズストリーミング</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/using-quality-based-encoding-modes-streaming-video.html">ストリーミングの品質ベースのエンコードモード</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/vp6-advanced-guide.html">VP6アドバンスド・ガイド</a></li>
+                  
+                
+                  
+                    <li><a href="/encoding-guides/vp9-guide.html">VP9ガイド</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/error-troubleshooting/index.html">エラー/トラブルシューティング<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/error-troubleshooting/problems.html">一般的な問題</a></li>
+                  
+                
+                  
+                    <li><a href="/error-troubleshooting/region-outages.html">リージョンの停止</a></li>
+                  
+                
+                  
+                    <li><a href="/error-troubleshooting/when-should-i-retry-failed-jobs.html">失敗したジョブを再試行する時です</a></li>
+                  
+                
+                  
+                    <li class="submenu-header">
+                      <a href="/error-troubleshooting/error-codes/index.html">エラーコード<strong> + </strong></a>
+                      <ul class="sidenav-subsubmenu" style="display:none;">
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-akamainetstoragefilesizeerror.html">AkamainetStorageFileSizeError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-checksummismatcherror.html">checkSummisMatchErro</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-dimensiontoosmallerror.html">dimensionToosmaller</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-downloadaccessdeniederror.html">ダウンロードAccessDeniederRor </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-downloadfailureerror.html">ダウンロードFailureError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-downloadtimeouterror.html">ダウンロードTimeouTerror </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-filenotfounderror.html">filenotFounderRor </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">filePermanentlyMovedError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">不正確なDurationError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-incompatiblewithdynamicprofileserror.html">DynamicProfilesError と互換性がありません</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-inputfilenotfound.html">inputFileNotFound </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidaccesskeyiderror.html">無効AccessKeyidError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidaudiosettingserror.html">InvalidAudioSettingsError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidcodeccombinationerror.html">InvalidCodecCombinationError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invaliddownloadedfiletypeerror.html">InvalidDownloadedFileTypeError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidencryptionsettingserror.html">InvalidEncryptionSettingSerr</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidfilepatherror.html">invalidFilePathError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidformatcodecerror.html">InvalidFormatcodeError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidframerateerror.html">invalidFrameRateError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidusernameorpassworderror.html">無効UserNameOrpassworderRor </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideobitrateerror.html">InvalidVideoBitrateError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideosettingserror.html">InvalidVideoSettingsError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-nomediaerror.html">nomediaError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-quicktimereferenceerror.html">クイックタイムリファレンス</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-remoteserverproblemerror.html">RemoteServerProblemError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-rtmpauthfailederror.html">rtmpAuthfailedError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-rtmpmaxstreamsxidreached.html">rtmpmaxStreamsXidLatしました</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-rtmpstreamnamealreadyinuse.html">rtmpStreamNameAlreadyinUse </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-s3bucketnotfounderror.html">S3bucketNotFounderRror </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-segmentingerror.html">SegmentingError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-skippedsourceerror.html">SkipedSourceError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-thumbnailerror.html">thumbnailError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-transcodingerror.html">transcodingError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteegroupurlerror.html">転送። invalidGranteegroupurlError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteeiderror.html">転送። InvalidGranteeEidError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-truncatedfileerror.html">truncatedFileError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unabletocreatedynamicprofileserror.html">UnabletoCreateDynamicProfilesエラー</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteddownloadproblemerror.html">downloadProblemErro</a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedffmpegresult.html">fredffmpeGresult </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedmplayerresult.html">tedmPlayerResult </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedprogenresult.html">portedProgenResult </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedresulterror.html">fretedResultError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteduploadproblemerror.html">teduploadProblemError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedx264result.html">tedx264result </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unreadablefileerror.html">readableFileError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedcodecerror.html">サポートされていないCodecError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencodingerror.html">unsupportedencodingError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencryptionerror.html">サポートされていないEncryptionError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedtranscodecombinationerror.html">unsupportedTranscodeComminationError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-uploadaccessdeniederror.html">uploadAccessDeniedError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-uploadfailureerror.html">uploadFailureError </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-uploadservernotfounderror.html">uploadServerNotFounderRor </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-uploadtimeouterror.html">UploadTimeouTerror </a></li>
+                        
+                        <li><a href="/error-troubleshooting/error-codes/error-workertimeouterror.html">workerTimeouTerror </a></li>
+                        
+                      </ul>
+                    </li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/integration/index.html">統合<strong> + </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/integration/faq-integration-libraries.html">統合ライブラリ</a></li>
+                  
+                
+                  
+                    <li><a href="/integration/100-integration-reliability.html">100% 統合信頼性</a></li>
+                  
+                
+                  
+                    <li><a href="/integration/test-jobs-and-integration-mode.html">テストジョブと統合モード</a></li>
+                  
+                
+                  
+                    <li><a href="/integration/using-read-only-api-keys.html">読み取り専用 API キーの使用</a></li>
+                  
+                
+              </ul>
+            
+          
+            
+              <h5 class="submenu-header"><a href="/support/index.html"><strong>サポート+ </strong></a></h5>
+              <ul class="sidenav-submenu" style="display:none;">
+                
+                  
+                    <li><a href="/support/brightcove-answer.html">ブライトコーブの回答</a></li>
+                  
+                
+                  
+                    <li><a href="/support/viewing-brightcove-system-status-page.html">ブライトコーブのシステムステータスページの表示</a></li>
+                  
+                
+                  
+                    <li><a href="/support/contact-sales.html">営業へのお問い合わせ</a></li>
+                  
+                
+                  
+                    <li><a href="/support/opening-case-with-brightcove-support.html">サポートケースを開く</a></li>
+                  
+                
+              </ul>
+            
+          
+      </nav>
+    </div>
+    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
+  <!-- bootstrap layout -->
+
+<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="ナビゲーションメニュー"/></p>
+
+<!-- search bar -->
+<div id="nav-search-box" style="margin-top: 1rem;"></div>
+<!-- in-page navigation for narrow screens -->
+<details class="centered-inpage-nav" id="centered_inpage_nav">
+  <summary><h6 class="toc">ページコンテンツ</h6></summary>
+  <nav id="centered_toc"></nav>
+  <ul id="centered_in_page_toc" class="list-none"></ul>
+</details>
+<!-- open in new tab/window -->
+<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="新しいタブで開く" style="margin-top:4em;width: 1.5em;"/></a>
+
+
+
+  
+    
+
+
+<h1>iOS/モバイルエンコーディングガイド</h1>
+<article class="bcls-article">
+  <summary>このトピックでは、モバイルデバイス用のビデオをエンコードする方法について説明します。</summary>
+
+  <section class="bcls-section">
+    <h2 id="Overview">概要</h2>
+
+    <p>まず悪い知らせだ何百ものモバイルデバイスがあり、100.0% をサポートすることは基本的に不可能です。</p>
+
+    <p>良いニュースは、モバイルデバイスが良くなっているということです。176x144 3GPがモバイルビデオと同義だった時代は終わりました。現代のスマートフォンは実際に高品質のビデオを再生することができ、スマートフォンの使用が増加しています。それは3GPが終わったと言うこと、または誰もがスマートフォンを持っていると言うことではありません。しかし、スマートフォンの使用は（<a href="http://www.canalys.com/pr/2010/r2010081.html"> 2010年第2四半期の64％の年率で</a>）増加しており、驚くことではないが、スマートフォンユーザーは、自分の携帯電話でビデオを見る可能性が高いです、ええ、電話を使用する友人よりも。</p>
+
+    <p>したがって、モバイルデバイスの90％以上をサポートする場合は、少なくとも2つのビデオタイプが必要です。3GP+MPEG-4、スマートフォンの場合は H.264 + MP4。</p>
+
+    <p>それは良いニュースだ、本当に。iPhone/iPad/iPod、Android、および (大部分の) Blackberry- <strong> 1 つの出力ビデオは、スマートフォンユーザーのすべてをカバーすることができます</strong>。PSP、PS3、Xbox 360で投げて、良い対策をしましょう。</p>
+
+    <p>もちろん、1つのユニバーサルスマートフォン出力は、ほとんどのスマートフォンユーザーの世話をすることができますが、複数のモバイル出力でより良いことができます。たとえば、iPadのネイティブ解像度は1024x768で、以前のiPhoneの480x320よりも完全に5倍高いです。したがって、480x320でビデオをエンコードすると、iPadのほぼ高精細機能が欠けています。</p>
+
+    <p>幸いなことに、少数の標準的なエンコーディングプロファイルを使用して、モバイルデバイスをターゲットにすることができます。ユニバーサルスマートフォンプロファイルから始めて、幅広い互換性を実現。高度なデバイス用の高度なスマートフォンプロファイルバージョンを追加してください。また、レガシープロファイルを使用してモバイルリストを作成し、互換性を最大限に引き出しましょう。レガシースマートフォンプロファイル（下記）、さらに広い3GPビデオのいずれか互換性。</p>
+
+    <p>これらのプロファイルの開始点として、次のデフォルトが挙げられます。<a href="http://zencoder.com">Zencoder </a>はこれらの設定を既定で使用しますが、使用しているエンコーディングツールで簡単に複製できます。</p>
+
+    <p>デフォルト:</p>
+
+    <p>動画:H.264、レベル 3.0、<br/>ベースラインプロファイルオーディオ:AAC、1～2チャンネル</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="universal-a">ユニバーサルスマートフォンプロファイル</h2>
+
+    <p>これは、現代のスマートフォンとの幅広い互換性のための素晴らしい開始プロファイルです。それはデバイスの最新の作物で可能なより高い解像度とコーデックの複雑さを利用しませんが、ちょうど約すべてを再生します。</p>
+
+    <h3>再生する:</h3>
+
+    <p><strong>iOS: </strong>iPhone、iPad、アップルテレビ、iPodタッチ、iPodクラシック、iPod <br/><strong> 5.5Gブラックベリー：</strong>太字 9000, 曲線 8910, 8900, 8520, Pearl 9XXX, Storm, Storm 2, トーチ, ツアー, 太字 9650 + 9700 <br/><strong> Android: </strong>すべて (？) <br/><strong>その他:</strong>PSP (3.30+)、PS3、Xbox 360、ウェブ、<a href="#general-notes">パームプレ* </a></p>
+
+    <h3>再生しない:</h3>
+
+    <p>iPod 5G、PSP (3.30以前)、Blackberry Curve 9330、9300、8530、83XX、Pearl 8XXX、88XX</p>
+
+    <h3>設定:</h3>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+    "input": "s3://bucket-name/file-name.avi",
+    "outputs": [
+        {
+            "url": "s3://output-bucket/output-file-name.mp4",
+            "audio_bitrate": 128,
+            "audio_sample_rate": 44100,
+            "height": 320,
+            "width": 480,
+            "max_frame_rate": 30,
+            "video_bitrate": 1500,
+            "h264_level": 3
+        }
+    ]
+}</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="universal-b">ユニバーサルスマートフォンプロファイル v2</h2>
+
+    <p>このプロフィールは、ビデオの解像度を上げることで、iPhone 4、iPad、Apple TV、新しいiPod Touch、ドロイド、PS3、Xboxでより良く再生されます。しかし、余分なピクセルは古いiPhoneでは無駄になり、ブラックベリーといくつかのAndroid携帯電話では再生されないビデオを作ります。</p>
+
+    <h3>再生する:</h3>
+
+    <p>上記のすべて、ブラックベリーとおそらく弱いAndroidデバイスを除いて</p>
+
+    <h3>設定:</h3>
+
+    <p>ユニバーサルスマートフォンプロファイル（上記）と同じですが、サイズは640x480</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+    "input": "s3://bucket-name/file-name.avi",
+    "outputs": [
+        {
+            "url": "s3://output-bucket/output-file-name.mp4",
+            "audio_bitrate": 128,
+            "audio_sample_rate": 44100,
+            "height": 480,
+            "width": 640,
+            "max_frame_rate": 30,
+            "video_bitrate": 1500,
+            "h264_level": 3
+        }
+    ]
+}</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="advanced-a">高度なスマートフォンプロファイル</h2>
+
+    <p>新しいiOSデバイスは、より高い解像度とより高いエンコーディングの複雑さを可能にします（つまり、より良い圧縮を意味します）。特に、iPadとApple TVユーザーは、美しい画面で480x320ビデオを見る必要はないので、これらのユーザーに良い体験を提供したい場合は、高品質のバージョンを提供することが理にかなっています。</p>
+
+    <h3>再生する:</h3>
+
+    <p><strong>iOS: </strong>iPhone 4、iPad、アップルテレビ*、新しいiPod <br/><strong> Touchアンドロイド：</strong>ネクサスワン、ドロイド、多分他の人。(YMMV これらについては、しかし。720p動画でトラブルを報告するユーザーもいます。) <br/><strong>その他:</strong>PS3、ウェブ</p>
+
+    <h3>再生しない:</h3>
+
+    <p><strong>iOS：</strong> iPod 5G/5.5G/クラシック、iPhone 3GSと前に、古いiPod Touch PSP、古いアップルテレビ* <br/><strong>ブラックベリー：<br/></strong><strong>すべてのアンドロイド：<br/></strong><strong>その他：</strong>PSP、PS3、Xbox 360、ウェブ</p>
+
+    <h3>設定:</h3>
+
+    <p>注意、これは最大サイズです。ネイティブ iPhone 4 解像度の場合は、サイズを 960x640 に設定します</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+    "input": "s3://bucket-name/file-name.avi",
+    "outputs": [
+    {
+        "url": "s3://output-bucket/output-file-name.mp4",
+        "audio_bitrate": 160,
+        "audio_sample_rate": 48000,
+        "height": 720,
+        "width": 1280,
+        "max_frame_rate": 30,
+        "video_bitrate": 5000,
+        "h264_profile": "main",
+        "h264_level": 3.1
+    }
+    ]
+}
+</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="advanced-b">高度なスマートフォンプロファイル v2</h2>
+
+    <p>古い Apple TV デバイスをサポートするには、[高度なスマートフォンプロファイル] 設定に加えて以下のいずれかを使用します。</p>
+
+    <h3>設定:</h3>
+
+    <p>高度なスマートフォンプロファイル（上記）と、以下のいずれか 1 つを加えます。</p>
+
+    <p><code translate="No">size: 960x540</code></p>
+
+    <p>または</p>
+
+    <p><code translate="No">max_frame_rate: 24</code></p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="legacy-smartphone">レガシースマートフォンプロファイル</h2>
+
+    <p>このプロファイルは、H.264ベースのモバイルデバイスの最後の主要なセット、特に古いiPodといくつかのブラックベリーで再生されます。トレードオフは大幅に小さいビデオです：320x240、768kbps以下で。</p>
+
+    <p>古い iPhone/iPod デバイスでは、「H.264 ベースライン低複雑度」プロファイルを要求します。「低複雑度」は実際にはH.264標準ではありません。実際には「参照フレームが1つだけ」という意味です。陪審員は、Appleデバイスが実際にこれを強制する量については出ていますが、真の互換性のためには、おそらくベースラインプロファイルを使用し、参照フレームを1に制限する必要があります。これは、<a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#h264-reference-frames"> h264_reference_frames </a>設定を使用して行うことができます。</p>
+
+    <h3>再生する:</h3>
+
+    <p><strong>上記のすべて、プラス</strong> : iPod 5G、PSP (3.30 より)、ブラックベリーカーブ9330、9300、8530、83XX、Pearl 8XXX、88XX、<a href="#general-notes">パームプレ* </a></p>
+
+    <h3>設定:</h3>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+    "input": "s3://bucket-name/file-name.avi",
+    "outputs": [
+    {
+        "url": "s3://output-bucket/output-file-name.mp4",
+        "audio_bitrate": 128,
+        "audio_sample_rate": 44100,
+        "height": 240,
+        "width": 320,
+        "max_frame_rate": 30,
+        "video_bitrate": 768,
+        "h264_level": 1.3
+    }
+    ]
+}</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="legacy-3gp">レガシー 3GP プロファイル</h2>
+
+    <p>最後に、3GPプロファイルまたは2つは、残りの多くのモバイルデバイスへのサポートを拡張します。</p>
+
+    <p>特に、レガシースマートフォンプロファイルで上記でサポートされているのと同じデバイスのほとんどで、これらを使用できます。したがって、3GPビデオを320x240 でエンコードする場合は、別のH.264ビデオを 320x240 でエンコードする必要はありません。</p>
+
+    <p><strong>注</strong></p>
+
+    <ul>
+      <li>これらのビデオはひどく見えますが、それは3GP電話をサポートするコストです。</li>
+      <li>3GPビデオを RTMP ストリームとして配信するには、それを「ヒント」する必要があります。APIリクエストで<a href="/encoding-settings/formats-codecs/encoding-settings-mp4.html#hint">ヒント</a>を<code translate="No">true</code>に設定して有効にします。</li>
+    </ul>
+    <h3>再生する:</h3>
+
+    <p><strong>言い難い。</strong>3GPデバイスの種類は数千種類あり、それぞれが少し異なります。これらを出発点と考えてください。</p>
+
+    <h3 id="legacy-3gp-a">プロファイルA</h3>
+
+    <div class="docs-code">
+      <pre class="line-numbers">
+<code class="language-json" translate="No">{
+    "input": "s3://bucket-name/file-name.avi",
+    "outputs": [
+    {
+        "url": "s3://output-bucket/output-file-name.mp4",
+        "format": "3gp",
+        "aspect_mode": "pad",
+        "frame_rate": 15,
+        "upscale": true,
+        "height": 240,
+        "width": 320,
+        "video_bitrate": 192,
+        "decoder_bitrate_cap": 192,
+        "audio_bitrate": 24,
+        "audio_channels": 1,
+        "audio_sample_rate": 16000
+    }
+    ]
+}</code></pre>
+
+      <h3 id="legacy-3gp-b">プロファイル B</h3>
+
+      <pre class="line-numbers">
+<code class="language-json" translate="No">{
+    "input": "s3://bucket-name/file-name.avi",
+    "outputs": [
+    {
+        "url": "s3://output-bucket/output-file-name.mp4",
+        "format": "3gp",
+        "video_codec": "mpeg4",
+        "height": 144,
+        "width": 176,
+        "aspect_mode": "pad",
+        "frame_rate": 5,
+        "upscale": true,
+        "video_bitrate": 52,
+        "decoder_bitrate_cap": 58,
+        "decoder_buffer_size": 16,
+        "audio_bitrate": 16,
+        "audio_channels": 1,
+        "audio_sample_rate": 16000
+    }
+    ]
+}</code></pre>
+
+      <section class="bcls-section">
+        <h2 id="summary">要約</h2>
+
+        <p>モバイルビデオを作成する場合は、ユニバーサルスマートフォンプロファイルから始めます。品質を向上するには、高度なスマートフォンプロファイルビデオでこれを補足してください。互換性を高めるには、MP4または3GPのいずれかを使用してレガシープロファイルを1つまたは2つ追加します。それだほとんどのモバイルデバイスをサポートするには、1 ～ 3 つのプロファイルしか必要ありません。</p>
+      </section>
+    </div>
+  </section>
+</article>
+<!-- complete bootstrap layout -->
+    </div>
+    <div class="col-sm-2 right-side-bar">
+      
+      <nav class="right-side-nav" id="right_side_nav">
+        <h6 class="toc">ページコンテンツ</h6>
+        <ul id="in_page_nav" class="list-none"></ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>
+
+<hr>
+<div class="last-updated">
+  ページ最終更新日 2020年9月28日
+</div>
+
+
+
+<footer class="bcls-footer" role="contentinfo">
+  <div class="row">
+    <div class="region region-footer-top-center col-md-12">
+      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
+
+        <h2>ブライトコーブサポート</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://status.brightcove.com">システムステータス</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">サポートへのお問い合わせ</a>
+          </li>
+          <li>
+            <a href="https://support.brightcove.com/">ドキュメンテーション</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
+
+        <h2>トレーニング</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">オンラインコース</a>
+          </li>
+          <li>
+            <a href="https://studio.support.brightcove.com/training/register-training.html">コースに登録する</a>
+          </li>
+          <li>
+            <a href="https://university.brightcove.com/">Brightcove University</a>
+          </li>
+        </ul>
+
+      </nav>
+      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
+
+        <h2>Brightcove</h2>
+
+        <ul class="menu">
+          <li>
+            <a href="https://www.brightcove.com">Brightcove.com</a>
+          </li>
+          <li>
+            <a href="https://supportportal.brightcove.com/s/login/?">お問合せ</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="region region-footer-bottom-center col-md-12">
+      <div class="bcls-copyright footer-menu">
+        <table>
+          <tr>
+            <td>
+              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
+            </td>
+            <td><a href="https://www.brightcove.com/en/legal/privacy">プライバシー</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">利用規約</a></td>
+            <td>
+              <div class="gf-links-cols footer-menu">
+                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</footer>
+<div id="talla_wrapper">
+  <p style="text-align: right;position: relative;"><button style="background:rgb(2, 28, 146);color:Snow;padding:.3rem;position:fixed;right:0;bottom:1em;z-index:9999999" onclick="javascript:displayChat()">質問ですか? </button> </p>
+  <div id="talla_chat">
+</div>
+</div>
+<script>
+      
+  var searchBox = sajari.init({
+    mode: "search-box",
+    project: "1588255093746585379", // Set this to your project.
+    collection: "brightcove-documenation", // Set this to your collection.
+    instantPipeline: "autocomplete", // Pipeline used as you type
+    inputPlaceholder: "Search", // Input element placeholder
+    maxSuggestions: 5, // Maximum number of suggestions to show
+    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
+  });
+  
+    searchBox("sub", "pipeline.search-sent", function (_, query) {
+      window.location = "/search.html?q=" + encodeURIComponent(query.q);
+    });
+  
+
+</script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
+  
+  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
+  <script src="/assets/js/sites_nav.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
+  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
+  <script src="/assets/js/feedback.js"></script>
+  
+  <script src="/assets/js/sajari-search-foot.js"></script>
+  
+  <!-- <script src="/assets/js/sajari-index.js"></script> -->
+  <script src="https://assets.talla.com/latest/embeddedjs/talla.js"></script>
+  <script src="/assets/js/talla-init.js"></script>
+  <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.677.0.min.js"></script> -->
+</body>
+
+</html>
