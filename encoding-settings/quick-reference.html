@@ -1,658 +1,11 @@
-﻿<!doctype html>
-<html lang="ja">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="一目で設定をエンコードします。">
-
-  <title>エンコード設定のクイックリファレンス</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Zencoder_Logo.svg" alt="製品ロゴ" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">言語の選択</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="サポート"/> サポートへのお問い合わせ</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="システムステータス"/> システムステータス</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">ホーム</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/encoding-settings/">エンコーディング設定</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">エンコード設定のクイックリファレンス</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Brightcove のその他のドキュメント</option>
-          
-            
-              <option value="https://support.brightcove.com">ドキュメントホーム</option>
-            
-          
-            
-              <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
-            
-          
-            
-              <option value="https://beacon.support.brightcove.com">Brightcove ビーコン</option>
-            
-          
-            
-              <option value="https://campaign.support.brightcove.com">Brightcove キャンペーン</option>
-            
-          
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
-          
-            
-              <option value="https://live.support.brightcove.com">Brightcove ・ライブ</option>
-            
-          
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove ギャラリー</option>
-            
-          
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
-          
-            
-              <option value="https://social.support.brightcove.com">Brightcove ソーシャル</option>
-            
-          
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
-          
-            
-              <option value="https://player.support.brightcove.com">Brightcove のプレーヤー開発</option>
-            
-          
-            
-              <option value="https://apis.support.brightcove.com">Video CloudプラットフォームAPI</option>
-            
-          
-            
-              <option value="https://sdks.support.brightcove.com">ビデオクラウドデバイス SDK</option>
-            
-          
-            
-              <option value="https://integrations.support.brightcove.com">統合および CMS コネクタ</option>
-            
-          
-            
-              <option value="https://general.support.brightcove.com">ビデオクラウドの一般情報</option>
-            
-          
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
-          
-        </select>
-
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">ホーム</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/getting-started/index.html">はじめに<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/getting-started/overview-zencoder.html">概要</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/quick-start-zencoder.html">クイックスタート</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/getting-api-key.html">API キーの取得</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/output-settings.html">出力設定</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/creating-multiple-outputs.html">複数の出力を作成する</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general-information/index.html">一般情報<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general-information/faq-basics.html">基本</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-codecs-and-formats.html">コーデックと形式</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-encoding.html">エンコーディング</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-file-transfers.html">ファイル転送</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-zencoder-pricing.html">Zencoder の価格設定</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-rate-limiting.html">レート制限</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/supported-video-and-audio-formats-codecs-and-containers.html">サポートされているビデオおよびオーディオ形式</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/overview-context-aware-encoding.html">概要:コンテキスト認識エンコーディング</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/getting-notifications-when-videos-are-finished.html">動画が終了したときに通知を受け取る</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/how-zencoder-saves-your-files-when-uploads-fail.html">アップロードに失敗したときの Zencoder によるファイルの保存方法</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-s3.html">S3 での Zencoder の使用</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-azure.html">Azure での Zencoder の使用</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-google-cloud-platform.html">Google クラウドストレージで Zencoder を使用する</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/references/index.html">参考文献<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/references/reference.html">API リファレンス</a></li>
-                  
-                
-                  
-                    <li><a href="/references/known-issues.html">既知の問題</a></li>
-                  
-                
-                  
-                    <li><a href="/references/release-notes.html">製品のアップデート</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/encoding-settings/index.html">エンコード設定<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/general/index.html">一般設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-job.html">ジョブ設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-general-output-settings.html">一般出力設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general/cae-settings.html">CAE 設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html">条件付き出力設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-notifications.html">通知設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/general-audio-video/index.html">オーディオ/ビデオ設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html">オーディオ設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html">オーディオ処理の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video.html">ビデオ設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html">ビデオ処理の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html">ブロードキャスト設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html">フレームレートの設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html">レートコントロール設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html">解像度の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html">セグメント化されたストリーミング設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-transmuxing.html">トランスマルチシング設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/formats-codecs/index.html">形式とコーデック設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html">フォーマットとコーデックの設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-aac.html">AAC 設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-flv.html">FLV 設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html">HDR 設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html">H.264設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-mp4.html">MP4 設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html">VP6設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/assets/index.html">メディアアセット設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-captions.html">キャプション設定</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-clips.html">クリップ設定</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-thumbnails.html">サムネイル設定</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-watermarks.html">透かしの設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/content-protection/index.html">コンテンツ保護の設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-encryption.html">暗号化の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-decryption.html">復号化の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-drm.html">DRM 設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/sources-destinations/index.html">ソース/送信先設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-s3-settings.html">S3 の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-aspera.html">アスペラ設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/encoding-guides/index.html">エンコードガイド<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/encoding-guides/advanced-audio-mapping-guide.html">オーディオマッピングガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/as11-mxf.html">AS-11-MXFガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/avc-intra-guide.html">AVC-イントラガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/cae-guide.html">CAEガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/creating-mp4-and-hls-outputs-together.html">トランスマルチシングガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/dash-streaming-and-playlists.html">DASH ストリーミングとプレイリスト</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/h264-advanced-guide.html">H.264 アドバンスド・ガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/hdr10-video-output.html">サポートされている HDR ビデオ形式</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/hevch265-guide.html">HEVC/H.265 ガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/highwinds-smil.html">強風SMILガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/html5-encoding.html">HTML5エンコーディング</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/http-live-segmented-streaming-and-playlists.html">HLS ストリーミングとプレイリスト</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/http-live-streaming-using-fragmented-mp4.html">断片化されたMP4を使用する HLS </a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/iosmobile-encoding.html">iOS/モバイルエンコーディングガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/microsoft-smooth-streaming.html">マイクロソフトスムーズストリーミング</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/using-quality-based-encoding-modes-streaming-video.html">ストリーミングの品質ベースのエンコードモード</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/vp6-advanced-guide.html">VP6アドバンスド・ガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/vp9-guide.html">VP9ガイド</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/error-troubleshooting/index.html">エラー/トラブルシューティング<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/error-troubleshooting/problems.html">一般的な問題</a></li>
-                  
-                
-                  
-                    <li><a href="/error-troubleshooting/region-outages.html">リージョンの停止</a></li>
-                  
-                
-                  
-                    <li><a href="/error-troubleshooting/when-should-i-retry-failed-jobs.html">失敗したジョブを再試行する時です</a></li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/error-troubleshooting/error-codes/index.html">エラーコード<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-akamainetstoragefilesizeerror.html">AkamainetStorageFileSizeError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-checksummismatcherror.html">checkSummisMatchErro</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-dimensiontoosmallerror.html">dimensionToosmaller</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadaccessdeniederror.html">ダウンロードAccessDeniederRor </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadfailureerror.html">ダウンロードFailureError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadtimeouterror.html">ダウンロードTimeouTerror </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-filenotfounderror.html">filenotFounderRor </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">filePermanentlyMovedError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">不正確なDurationError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-incompatiblewithdynamicprofileserror.html">DynamicProfilesError と互換性がありません</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inputfilenotfound.html">inputFileNotFound </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidaccesskeyiderror.html">無効AccessKeyidError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidaudiosettingserror.html">InvalidAudioSettingsError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidcodeccombinationerror.html">InvalidCodecCombinationError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invaliddownloadedfiletypeerror.html">InvalidDownloadedFileTypeError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidencryptionsettingserror.html">InvalidEncryptionSettingSerr</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidfilepatherror.html">invalidFilePathError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidformatcodecerror.html">InvalidFormatcodeError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidframerateerror.html">invalidFrameRateError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidusernameorpassworderror.html">無効UserNameOrpassworderRor </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideobitrateerror.html">InvalidVideoBitrateError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideosettingserror.html">InvalidVideoSettingsError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-nomediaerror.html">nomediaError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-quicktimereferenceerror.html">クイックタイムリファレンス</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-remoteserverproblemerror.html">RemoteServerProblemError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpauthfailederror.html">rtmpAuthfailedError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpmaxstreamsxidreached.html">rtmpmaxStreamsXidLatしました</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpstreamnamealreadyinuse.html">rtmpStreamNameAlreadyinUse </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-s3bucketnotfounderror.html">S3bucketNotFounderRror </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-segmentingerror.html">SegmentingError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-skippedsourceerror.html">SkipedSourceError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-thumbnailerror.html">thumbnailError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transcodingerror.html">transcodingError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteegroupurlerror.html">転送። invalidGranteegroupurlError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteeiderror.html">転送። InvalidGranteeEidError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-truncatedfileerror.html">truncatedFileError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unabletocreatedynamicprofileserror.html">UnabletoCreateDynamicProfilesエラー</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteddownloadproblemerror.html">downloadProblemErro</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedffmpegresult.html">fredffmpeGresult </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedmplayerresult.html">tedmPlayerResult </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedprogenresult.html">portedProgenResult </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedresulterror.html">fretedResultError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteduploadproblemerror.html">teduploadProblemError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedx264result.html">tedx264result </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unreadablefileerror.html">readableFileError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedcodecerror.html">サポートされていないCodecError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencodingerror.html">unsupportedencodingError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencryptionerror.html">サポートされていないEncryptionError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedtranscodecombinationerror.html">unsupportedTranscodeComminationError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadaccessdeniederror.html">uploadAccessDeniedError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadfailureerror.html">uploadFailureError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadservernotfounderror.html">uploadServerNotFounderRor </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadtimeouterror.html">UploadTimeouTerror </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-workertimeouterror.html">workerTimeouTerror </a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/integration/index.html">統合<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/integration/faq-integration-libraries.html">統合ライブラリ</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/100-integration-reliability.html">100% 統合信頼性</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/test-jobs-and-integration-mode.html">テストジョブと統合モード</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/using-read-only-api-keys.html">読み取り専用 API キーの使用</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html"><strong>サポート+ </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">Brightcove のシステムステータスページの表示</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">営業へのお問い合わせ</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">サポートケースを開く</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="ナビゲーションメニュー"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">ページコンテンツ</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="新しいタブで開く" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
+---
+title: エンコーディング設定クイックリファレンス
+description: エンコーディング設定を一目で把握できます。
+parent: Encoding Settings
+---
 
 <style>
-  .bcls-table td>a>code {
-    font-size: .9rem;
-    white-space: nowrap;
-  }
+  .bcls-table td&gt;a&gt;code { font-size: .9rem; white-space: nowrap; }
 </style>
 <article class="bcls-article">
   <h1>エンコーディング設定</h1>
@@ -663,7 +16,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -672,22 +25,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#api_key"><code translate="No">api_key</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ZencoderアカウントのAPIキー。</td>
+          <td>Zencoder アカウントの API キー。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#dynamic_profile_options"><code translate="No">dynamic_profile_options</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>CAEを使用すると、出力の数とそのような出力のパラメーターは、入力ファイルごとに動的に変化する可能性があります。dynamic_profile_options設定は、レンディションの作成方法を定義します。</td>
+          <td>CAEでは、出力の数とパラメータは入力ファイルごとに動的に変化する可能性があります。dynamic_profile_options 設定は、レンディションの作成方法を定義します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#generate_dynamic_profile"><code translate="No">generate_dynamic_profile</code></a></td>
-          <td>false</td>
-          <td>CAEを使用すると、出力の数とそのような出力のパラメーターは、入力ファイルごとに動的に変化する可能性があります。</td>
+          <td>偽</td>
+          <td>CAEでは、出力の数とパラメータは入力ファイルごとに動的に変化する可能性があります。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#input"><code translate="No">input</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>HTTP、S3、クラウドファイル、GCS、FTP、FTPS、SFTP、Azure、またはAsperaのURL。ファイルをダウンロードしてトランスコードできます。</td>
+          <td>HTTP、S3、クラウドファイル、GCS、FTP、FTPS、SFTP、Azure、またはアスペラのURL、我々はトランスコードするファイルをダウンロードすることができます。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></td>
@@ -696,33 +49,33 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#region"><code translate="No">region</code></a></td>
-          <td>我ら</td>
-          <td>ファイルが処理される領域：米国、ヨーロッパ、アジア、またはオーストラリア。</td>
+          <td>私たち</td>
+          <td>ファイルが処理される領域:米国、ヨーロッパ、アジア、またはオーストラリア。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#test"><code translate="No">test</code></a></td>
-          <td>false</td>
-          <td>ジョブのテストモード（「統合モード」）を有効にします。</td>
+          <td>偽</td>
+          <td>ジョブのテストモード (「統合モード」) を有効にします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#private"><code translate="No">private</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>ジョブのプライバシーモードを有効にします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#download_connections"><code translate="No">download_connections</code></a></td>
           <td>5</td>
-          <td>ダウンロードを高速化するために、複数の同時接続を利用します（状況によっては）。</td>
+          <td>ダウンロードアクセラレーションには、複数の同時接続を使用します (状況によっては)。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#pass_through"><code translate="No">pass_through</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>このジョブと一緒に保存するオプションの情報。</td>
+          <td>このジョブと一緒に格納するオプションの情報。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#mock"><code translate="No">mock</code></a></td>
-          <td>false</td>
-          <td>模擬ジョブリクエストを送信します。</td>
+          <td>偽</td>
+          <td>モックされたジョブリクエストを送信します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-job.html#grouping"><code translate="No">grouping</code></a></td>
@@ -763,7 +116,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -782,22 +135,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#dynamic_profile_rendition"><code translate="No">dynamic_profile_rendition</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>dynamic_profile_rendition設定は、この出力が動的に生成されたCAEプロファイルの設定を使用する必要があること、具体的には、設定を使用するプロファイルのレンディションを指定します。</td>
+          <td>dynamic_profile_rendition 設定は、この出力で動的に生成された CAE プロファイルの設定、特に設定を使用するプロファイルのレンディションを使用するように指定します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#url"><code translate="No">url</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>S3、クラウドファイル、GCS、FTP、FTPS、SFTP、Aspera、Azure、HTTP、またはRTMP URLで、トランスコードされたファイルを配置します。</td>
+          <td>S3、クラウドファイル、GCS、FTP、FTPS、SFTP、アスペラ、Azure、HTTP、またはRTMPのURL、トランスコードされたファイルを置きます。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#secondary_url"><code translate="No">secondary_url</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>トランスコードされたファイルを配置するS3、クラウドファイル、GCS、FTP、FTPS、SFTP、HTTP、RTMP、Aspera、またはAzureのURL。</td>
+          <td>S3、クラウドファイル、GCS、FTP、FTPS、SFTP、HTTP、RTMP、アスペラ、または変換されたファイルを配置するAzureのURL。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#base_url"><code translate="No">base_url</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ベースS3、クラウドファイル、GCS、FTP、FTPS、SFTP、Azure、またはAsperaディレクトリのURL。ファイル名なしでトランスコードされたファイルを配置します。</td>
+          <td>ベースS3、クラウドファイル、GCS、FTP、FTPS、SFTP、Azure、またはAsperaディレクトリのURL、ファイル名なしで変換されたファイルを置きます。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#filename"><code translate="No">filename</code></a></td>
@@ -812,27 +165,27 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#package_format"><code translate="No">package_format</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>出力ファイルに使用するZip /パッケージ形式。</td>
+          <td>出力ファイルに使用する ZIP/パッケージ形式。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#device_profile"><code translate="No">device_profile</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>モバイルデバイスの互換性のために使用するデバイスプロファイル。</td>
+          <td>モバイルデバイスの互換性に使用するデバイスプロファイル。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#strict"><code translate="No">strict</code></a></td>
-          <td>false</td>
-          <td>厳密モードを有効にします。</td>
+          <td>偽</td>
+          <td>厳密モードをイネーブルにします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#skip_video"><code translate="No">skip_video</code></a></td>
-          <td>false</td>
-          <td>ビデオトラックを出力しないでください。</td>
+          <td>偽</td>
+          <td>ビデオトラックを出力しません。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#skip_audio"><code translate="No">skip_audio</code></a></td>
-          <td>false</td>
-          <td>オーディオトラックを出力しないでください。</td>
+          <td>偽</td>
+          <td>オーディオトラックを出力しません。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#source"><code translate="No">source</code></a></td>
@@ -846,18 +199,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#generate_md5_checksum"><code translate="No">generate_md5_checksum</code></a></td>
-          <td>false</td>
-          <td>出力ファイルのMD5チェックサムを生成します。</td>
+          <td>偽</td>
+          <td>出力ファイルの MD5 チェックサムを生成します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#parallel_upload_limit"><code translate="No">parallel_upload_limit</code></a></td>
-          <td>S3の場合は30、その他のすべての宛先の場合は10。</td>
+          <td>S3 の場合は 30、その他すべての宛先は 10。</td>
           <td>同時アップロードを試みる最大数。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-general-output-settings.html#headers"><code translate="No">headers</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ファイルをアップロードするときにファイルと一緒に送信するHTTPヘッダー。</td>
+          <td>アップロード時にファイルを添付して送信する HTTP ヘッダー。</td>
         </tr>
       </tbody>
     </table>
@@ -868,7 +221,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -887,12 +240,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#min_resolution"><code translate="No">min_resolution</code></a></td>
           <td>192x108</td>
-          <td>ラダーで考慮される最小解像度。</td>
+          <td>ラダーに対して考慮される最小分解能。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#max_resolution"><code translate="No">max_resolution</code></a></td>
           <td>ソース解像度</td>
-          <td>ラダーで考慮される最大解像度。</td>
+          <td>ラダーに対して考慮される最大分解能。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#max_frame_rate"><code translate="No">max_frame_rate</code></a></td>
@@ -902,27 +255,27 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#keyframe_rate"><code translate="No">keyframe_rate</code></a></td>
           <td>0.5</td>
-          <td>キーフレームレート。この値は、0.5または1のいずれかになります。SSAI対応コンテンツの場合、この値は1である必要があります。</td>
+          <td>キーフレームレート。この値は 0.5 または 1 のいずれかです。SSAI が有効なコンテンツの場合、この値は 1 である必要があります。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#fixed_frame_rate"><code translate="No">fixed_frame_rate</code></a></td>
-          <td>true</td>
-          <td>すべてのレンディションで同じフレームレートを使用するようにジェネレーターに指示します。falseの場合、360p未満の解像度でのH.264ベースラインプロファイルレンディションには、半分のフレームレートが割り当てられます。</td>
+          <td>本当</td>
+          <td>すべてのレンディションで同じフレームレートを使用するようにジェネレータに指示します。false の場合、360p 以下の解像度での H.264 ベースラインプロファイルのレンディションには、半分のフレームレートが割り当てられます。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#min_bitrate"><code translate="No">min_bitrate</code></a></td>
           <td>200</td>
-          <td>使用できる最小ビットレート[kbps]。</td>
+          <td>使用できる最小ビットレート (kbps)。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#max_bitrate"><code translate="No">max_bitrate</code></a></td>
           <td>15000</td>
-          <td>使用できる最大ビットレート[kbps]。</td>
+          <td>使用できる最大ビットレート (kbps)。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#max_first_rendition_bitrate"><code translate="No">max_first_rendition_bitrate</code></a></td>
           <td>400</td>
-          <td>最初のレンディションに使用できる最大ビットレート[kbps]。</td>
+          <td>最初のレンディションに使用できる最大ビットレート (kbps)。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#min_granularity"><code translate="No">min_granularity</code></a></td>
@@ -942,39 +295,39 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#bitrate_cap_to_bitrate_ratio"><code translate="No">bitrate_cap_to_bitrate_ratio</code></a></td>
           <td>1.3</td>
-          <td>VBRエンコーディングに使用される平均ビットレートに対する最大ビットレートの比率。</td>
+          <td>VBR エンコーディングに使用される平均ビットレートに対する最大ビットレートの比率。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#buffer_size_to_bitrate_ratio"><code translate="No">buffer_size_to_bitrate_ratio</code></a></td>
           <td>2.0</td>
-          <td>VBRエンコーディングに使用される平均ビットレートに対するデコーダーバッファサイズの比率。</td>
+          <td>VBR エンコーディングに使用される平均ビットレートに対するデコーダバッファサイズの比率。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#bitrate_cap_offset"><code translate="No">bitrate_cap_offset</code></a></td>
           <td>64</td>
-          <td>最大ビットレートを計算するときに定数が追加されます。</td>
+          <td>最大ビットレートを計算するときに追加された定数です。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#buffer_size_offset"><code translate="No">buffer_size_offset</code></a></td>
           <td>85</td>
-          <td>VBVバッファサイズを計算するときに定数が追加されます。</td>
+          <td>VBV バッファサイズの計算時に追加された定数です。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#rtmp_keep_alive"><code translate="No">quality_rate_tune</code></a></td>
           <td>0</td>
-          <td>品質とレートの調整パラメータ。</td>
+          <td>品質対レートチューニングパラメータ。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#select_baseline_profile_configuration"><code translate="No">select_baseline_profile_configuration</code></a></td>
-          <td>true</td>
-          <td>プロファイルで使用される少なくとも1つのレンディションは、ベースラインプロファイルになります。</td>
+          <td>本当</td>
+          <td>プロファイルで使用される少なくとも 1 つのレンディションがベースラインプロファイルになります。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/cae-settings.html#video_configurations"><code translate="No">video_configurations</code></a></td>
           <td>
             <span class="none">なし</span>
           </td>
-          <td>CAEエンコーディングの一部として優先的または強制的に生成する必要がある、解像度、フレームレート、および関連するコーデック設定を記述する構造の配列。</td>
+          <td>解像度、フレームレート、および関連するコーデック設定を記述する構造体の配列。CAE エンコーディングの一部として優先または必須に生成する必要があります。</td>
         </tr>
       </tbody>
     </table>
@@ -985,7 +338,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -993,29 +346,29 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody class="bcls-table__body">
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#format"><code translate="No">format</code></a></td>
-          <td>出力ファイル名、次にビデオまたはオーディオコーデックによって決定されます。それ以外の場合：mp4（標準出力用）; ts（セグメント化された出力用）。</td>
+          <td>出力ファイル名、およびビデオコーデックまたはオーディオコーデックによって決定されます。それ以外の場合:mp4 (標準出力の場合); ts (セグメント出力の場合)。</td>
           <td>使用する出力形式。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#video_codec"><code translate="No">video_codec</code></a></td>
-          <td>フォーマット、プロファイル、またはによって決定されます<a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#audio_codec"><code translate="No">audio_codec</code></a>。何も提供されていない場合はh264。</td>
+          <td>形式、プロファイル、または指定されていない場合は<a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#audio_codec"><code translate="No">audio_codec</code></a> . h264 によって決定されます。</td>
           <td>使用するビデオコーデック。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#audio_codec"><code translate="No">audio_codec</code></a></td>
-          <td>フォーマット、プロファイル、またはによって決定されます<a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#video_codec"><code translate="No">video_codec</code></a>。何も提供されていない場合はaac。</td>
+          <td>フォーマット、プロファイル、または指定されていない場合は<a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#video_codec"><code translate="No">video_codec</code></a> . aac によって決定されます。</td>
           <td>使用するオーディオコーデック。</td>
         </tr>
       </tbody>
     </table>
   </section>
   <section class="bcls-section">
-    <h2 id="resolution">解明</h2>
+    <h2 id="resolution">分解能</h2>
 
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1024,7 +377,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html#size"><code translate="No">size</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>出力ビデオの解像度（WxH、ピクセル単位）。</td>
+          <td>出力ビデオの解像度 (ピクセル単位の wxH)。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html#width"><code translate="No">width</code></a></td>
@@ -1038,34 +391,34 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html#upscale"><code translate="No">upscale</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>入力がターゲット出力解像度よりも小さい場合は、出力をアップスケールします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html#aspect_mode"><code translate="No">aspect_mode</code></a></td>
           <td>保存する</td>
-          <td>入力ファイルのアスペクト比がターゲットの幅/高さのアスペクト比と一致しない場合の対処方法。</td>
+          <td>入力ファイルの縦横比がターゲットの幅/高さの縦横比と一致しない場合の対比。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html#sample_aspect_ratio"><code translate="No">sample_aspect_ratio</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>出力ビデオに使用されるサンプル（ピクセル）アスペクト比。サイズ、幅、高さ、および<code translate="No">aspect_mode</code>モードオプションはすべて、表示サイズではなく、エンコードされたピクセルサイズを参照します。</td>
+          <td>出力ビデオに使用するサンプル（ピクセル）縦横比。サイズ、幅、高さ、<code translate="No">aspect_mode</code>モードの各オプションは、表示寸法ではなく、エンコードされたピクセル寸法を参照します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html#force_interlace_headers"><code translate="No">force_interlace_headers</code></a></td>
-          <td>false<span class="none"></span></td>
-          <td>一部のデコーダーはインターレースコンテンツを要求しますが、プログレッシブコンテンツは問題なく再生されます。この設定により、プログレッシブコンテンツのメタデータに「インターレース」ヘッダーが追加され、実際にインターレースされているように見えます。</td>
+          <td><span class="none">偽</span></td>
+          <td>一部のデコーダでは、インターレースコンテンツを要求しますが、プログレッシブコンテンツをうまく再生します。この設定では、プログレッシブコンテンツのメタデータに「インターレース」ヘッダーを追加して、実際にインターレースされているように見えます。</td>
         </tr>
       </tbody>
     </table>
   </section>
   <section class="bcls-section">
-    <h2 id="Rate_Control">レートの制御</h2>
+    <h2 id="Rate_Control">レートコントロール</h2>
 
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1074,22 +427,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#quality"><code translate="No">quality</code></a></td>
           <td>3</td>
-          <td>ターゲットの視覚的品質に一致するように最適なビデオビットレートを自動選択します。</td>
+          <td>目標の画質に合わせて、最適なビデオビットレートを自動選択します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#video_bitrate"><code translate="No">video_bitrate</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>kbps単位のターゲットビデオビットレート。特定のビットレートをターゲットにする場合を除いて、品質設定を選択する場合は必要ありません。</td>
+          <td>ターゲットビデオビットレート（kbps）。特定のビットレートをターゲットにする場合を除き、品質設定を選択する場合は必要ありません。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_quality"><code translate="No">audio_quality</code></a></td>
           <td>3</td>
-          <td>ターゲットの音質に合わせて最適なオーディオビットレートを自動選択します。</td>
+          <td>目標の音質に合わせて、最適なオーディオビットレートを自動選択します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_bitrate"><code translate="No">audio_bitrate</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>kbps単位のターゲットオーディオビットレート。を選択した場合は必要ありません<code translate="No">audio_quality</code>特定のビットレートをターゲットにする場合を除いて、設定。</td>
+          <td>ターゲットオーディオビットレート（kbps）。特定のビットレートをターゲットにする場合を除き、<code translate="No">audio_quality</code>設定を選択しても必要ありません。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#max_video_bitrate"><code translate="No">max_video_bitrate</code></a></td>
@@ -1099,26 +452,26 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#speed"><code translate="No">speed</code></a></td>
           <td>3</td>
-          <td>目標のトランスコーディング速度。エンコードが遅いと、通常、より高度な圧縮が可能になります。</td>
+          <td>ターゲットトランスコーディング速度。通常、エンコード速度が遅くなると、より高度な圧縮が可能になります。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#decoder_bitrate_cap"><code translate="No">decoder_bitrate_cap</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>デコーダーバッファに供給される最大ビットレート。通常、ストリーミングを目的としたビデオ、または特定のデバイスをターゲットにするために使用されます（例：<code translate="No">Blu-Ray</code>）。</td>
+          <td>デコーダバッファに供給される最大ビットレート。通常、ストリーミング用のビデオ、または特定のデバイス（例<code translate="No">Blu-Ray</code>）をターゲットにするために使用します。</td>
         </tr>
         <tr>
-          <td><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#decoder_buffer_size"> <code translate="No">decoder_buffer_size</code></a></td>
+          <td><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#decoder_buffer_size"><code translate="No">decoder_buffer_size</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>と組み合わせて使用されるデコーダバッファのサイズ<code translate="No">bitrate_cap</code>。</td>
+          <td>デコーダバッファのサイズ<code translate="No">bitrate_cap</code>。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#one_pass"><code translate="No">one_pass</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>ワンパスエンコーディングを強制します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_constant_bitrate"><code translate="No">audio_constant_bitrate</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>可能であれば、オーディオの固定ビットレートモードを有効にします。</td>
         </tr>
       </tbody>
@@ -1130,7 +483,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1138,7 +491,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody class="bcls-table__body">
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#frame_rate"><code translate="No">frame_rate</code></a></td>
-          <td>元の（入力）フレームレート。</td>
+          <td>元の (入力) フレームレート</td>
           <td>使用するフレームレート。</td>
         </tr>
         <tr>
@@ -1149,53 +502,53 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#decimate"><code translate="No">decimate</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>入力フレームレートを除数で減らします。</td>
+          <td>入力フレームレートを約数で減らします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#keyframe_interval"><code translate="No">keyframe_interval</code></a></td>
           <td>250</td>
-          <td>各キーフレーム間の最大フレーム数。H.264ビデオの場合、キーフレームはIDRフレームです。</td>
+          <td>各キーフレーム間の最大フレーム数です。H.264 ビデオの場合、キーフレームは IDR フレームです。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#keyframe_rate"><code translate="No">keyframe_rate</code></a></td>
-          <td><code translate="No">keyframe_interval</code> 250の</td>
-          <td>1秒あたりのキーフレームの数。</td>
+          <td><code translate="No">keyframe_interval</code> 250人の</td>
+          <td>1 秒あたりのキーフレーム数。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#fixed_keyframe_interval"><code translate="No">fixed_keyframe_interval</code></a></td>
-          <td>false</td>
-          <td>固定キーフレーム間隔モードを有効にします（VP6、VP8、VP9、およびH.264のみ）。</td>
+          <td>偽</td>
+          <td>固定キーフレーム間隔モードを有効にします（VP6、VP8、VP9、H.264のみ）。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#forced_keyframe_interval"><code translate="No">forced_keyframe_interval</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>指定された間隔でキーフレームを強制します（H.264のみ）。</td>
+          <td>指定した間隔でキーフレームを強制します（H.264 のみ）。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#forced_keyframe_rate"><code translate="No">forced_keyframe_rate</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>フレームレートを考慮して、1秒あたりのキーフレーム数を指定します（H.264のみ）。</td>
+          <td>フレームレートを考慮して、1 秒あたりのキーフレーム数を指定します（H.264 のみ）。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#generate_frame_index"><code translate="No">generate_frame_index</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>ビデオフレームインデックスファイルを生成します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#frame_index_filename"><code translate="No">frame_index_filename</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>フレームインデックスのデフォルトのファイル名を上書きする場合<a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#generate_frame_index"><code translate="No">generate_frame_index</code></a>有効になっています。</td>
+          <td><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html#generate_frame_index"><code translate="No">generate_frame_index</code></a>が有効な場合、フレームインデックスのデフォルトのファイル名を上書きします。</td>
         </tr>
       </tbody>
     </table>
   </section>
   <section class="bcls-section">
-    <h2 id="Video">動画</h2>
+    <h2 id="Video">ビデオ</h2>
 
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1208,18 +561,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-video.html#video_codec_profile"><code translate="No">video_codec_profile</code></a></td>
-          <td>H.264：ベースライン、HEVC：メイン、VP9：0</td>
+          <td>H.264: ベースライン、HEVC: メイン、VP9:0</td>
           <td>使用するビデオコーデックプロファイル（H.264、HEVC、VP9）。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-video.html#video_codec_level"><code translate="No">video_codec_level</code></a></td>
-          <td>出力ビデオに基づくレベルチャートを使用して自動的に計算されます。見る<a href="http://en.wikipedia.org/wiki/H.264#Levels"><code translate="No">H.264-levels</code></a>、<a href=" http://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Tiers_and_levels"><code translate="No">HEVC-levels</code></a></td>
+          <td>出力ビデオに基づいてレベルチャートを使用して自動的に計算されます。参照<a href="http://en.wikipedia.org/wiki/H.264#Levels"><code translate="No">H.264-levels</code></a>、<a href=" http://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Tiers_and_levels"><code translate="No">HEVC-levels</code></a></td>
           <td>使用するビデオコーデックレベル（H.264、HEVC）。</td>
         </tr>
         <tr>
-          <td><a href="/encoding-settings/general-audio-video/encoding-settings-video.html#video_bframes"> <code translate="No">video_bframes</code></a></td>
+          <td><a href="/encoding-settings/general-audio-video/encoding-settings-video.html#video_bframes"><code translate="No">video_bframes</code></a></td>
           <td>0</td>
-          <td>連続するBフレームの最大数（H.264、HEVC）</td>
+          <td>連続した B フレームの最大数（H.264、HEVC）</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-video.html#color_metadata"><code translate="No">color_metadata</code></a></td>
@@ -1230,12 +583,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </table>
   </section>
   <section class="bcls-section">
-    <h2 id="Audio">音声</h2>
+    <h2 id="Audio">オーディオ</h2>
 
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1253,18 +606,18 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html#audio_channels"><code translate="No">audio_channels</code></a></td>
-          <td>元のファイルがモノラルの場合は1。それ以外の場合、2。</td>
-          <td>オーディオチャンネルの数：1または2。</td>
+          <td>元のファイルがモノの場合は 1、それ以外の場合は 2。</td>
+          <td>オーディオチャンネルの数:1か2。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html#audio_bit_depth"><code translate="No">audio_bit_depth</code></a></td>
           <td>16</td>
-          <td>サンプルあたりのビット数：16、24、32。</td>
+          <td>サンプルあたりのビット数:16、24、32。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html#audio_language"><code translate="No">audio_language</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>オーディオトラックの言語を説明します。</td>
+          <td>オーディオトラックの言語を記述します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html#input_audio_channels"><code translate="No">input_audio_channels</code></a></td>
@@ -1285,7 +638,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1299,67 +652,67 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#label"><code translate="No">label</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>サムネイルグループの各セットを識別するためのラベル。</td>
+          <td>サムネールグループの各セットを識別するラベル。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#format"><code translate="No">format</code></a></td>
           <td>png</td>
-          <td>サムネイル画像のフォーマット。</td>
+          <td>サムネイルイメージの形式。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#number"><code translate="No">number</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>等間隔の多数のサムネイル。</td>
+          <td>いくつかのサムネールを、等間隔に配置します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#start_at_first_frame"><code translate="No">start_at_first_frame</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>最初のフレームからサムネイルの生成を開始します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#interval"><code translate="No">interval</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>秒単位で、等間隔でサムネイルを取得します。</td>
+          <td>秒単位で偶数の間隔でサムネイルを取ります。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#interval_in_frames"><code translate="No">interval_in_frames</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>フレーム単位で、等間隔でサムネイルを取得します。</td>
+          <td>サムネールをフレーム単位で均等な間隔で撮ります。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#times"><code translate="No">times</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>サムネイルを取得する時間の配列（秒単位）。</td>
+          <td>サムネイルを取得するための時間の配列（秒単位）。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#aspect_mode"><code translate="No">aspect_mode</code></a></td>
           <td>保存する</td>
-          <td>入力ファイルのアスペクト比とは異なるサムネイルの幅/高さの処理方法。</td>
+          <td>入力ファイルの縦横比とは異なるサムネイルの幅/高さをどのように扱うか。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#size"><code translate="No">size</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>サムネイルの解像度として<code translate="No">WxH</code>。</td>
+          <td>サムネールの解像度<code translate="No">WxH</code>。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#width"><code translate="No">width</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>サムネイルの最大幅（ピクセル単位）。</td>
+          <td>サムネイルの最大幅 (ピクセル単位)。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#height"><code translate="No">height</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>サムネイルの最大の高さ（ピクセル単位）。</td>
+          <td>サムネールの最大高さ (ピクセル単位)。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#base_url"><code translate="No">base_url</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ファイル名なしでサムネイルを配置するベースS3、クラウドファイル、GCS、FTP、FTPS、またはSFTPディレクトリのURL。</td>
+          <td>ベースS3、クラウドファイル、GCS、FTP、FTPS、または SFTP ディレクトリのURL、ファイル名なしでサムネイルを配置します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#prefix"><code translate="No">prefix</code></a></td>
           <td>枠</td>
-          <td>サムネイルファイル名のプレフィックス。</td>
+          <td>サムネイルファイル名の接頭辞。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#filename"><code translate="No">filename</code></a></td>
@@ -1368,8 +721,8 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#public"><code translate="No">public</code></a></td>
-          <td>false</td>
-          <td>S3 で出力をパブリックに読み取り可能にします。</td>
+          <td>偽</td>
+          <td>S3 で出力をパブリックに読みやすくします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#access_control"><code translate="No">access_control</code></a></td>
@@ -1379,22 +732,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#grantee"><code translate="No">grantee</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>きめ細かいS3アクセス制御権限の被付与者を設定します。</td>
+          <td>きめ細かなS3アクセス制御アクセス許可の被付与者を設定します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#permission"><code translate="No">permission</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>きめ細かいアクセス制御を使用する場合は、被付与者のアクセス許可を設定します。</td>
+          <td>きめ細かなアクセス制御を使用する場合に、被付与者の権限を設定します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#rss"><code translate="No">rrs</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>Amazon S3 の冗長化ストレージです。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#headers"><code translate="No">headers</code></a></td>
           <td><span class="none">なし</span></td>
-          <td><code translate="No">HTTP headers</code>サムネイルをアップロードするときにサムネイルと一緒に送信します。</td>
+          <td><code translate="No">HTTP headers</code>アップロード時にサムネールと一緒に送信してください。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#credentials"><code translate="No">credentials</code></a></td>
@@ -1403,7 +756,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-thumbnails.html#parallel_upload_limit"><code translate="No">parallel_upload_limit</code></a></td>
-          <td>S3の場合は30、その他のすべての宛先の場合は10。</td>
+          <td>S3 の場合は 30、その他すべての宛先は 10。</td>
           <td>同時アップロードを試みる最大数。</td>
         </tr>
       </tbody>
@@ -1415,7 +768,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1424,37 +777,37 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-watermarks.html#watermarks"><code translate="No">watermarks</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>出力ビデオに1つ以上の透かしを追加します。</td>
+          <td>出力ビデオに 1 つ以上のウォーターマークを追加します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-watermarks.html#url"><code translate="No">url</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>透かしとして使用するリモート画像ファイルのURL。</td>
+          <td>ウォーターマークとして使用するリモートイメージファイルの URL。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-watermarks.html#x"><code translate="No">x</code></a></td>
           <td>-10</td>
-          <td>x軸の透かしを配置する場所。</td>
+          <td>X 軸上の透かしを配置する場所。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-watermarks.html#y"><code translate="No">y</code></a></td>
           <td>-10</td>
-          <td>y軸の透かしを配置する場所。</td>
+          <td>Y 軸上の透かしを配置する場所。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-watermarks.html#width"><code translate="No">width</code></a></td>
-          <td>スケールする<a href="/encoding-settings/assets/encoding-settings-watermarks.html#height">高さ</a>、または元の画像の幅。</td>
-          <td>透かしのスケーリングされた幅。</td>
+          <td><a href="/encoding-settings/assets/encoding-settings-watermarks.html#height">高さ</a>、または元のイメージの幅に拡大/縮小します。</td>
+          <td>ウォーターマークの拡大/縮小された幅。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-watermarks.html#height"><code translate="No">height</code></a></td>
-          <td>スケールする<a href="/encoding-settings/assets/encoding-settings-watermarks.html#width">幅</a>、または元の画像の高さ。</td>
-          <td>透かしのスケーリングされた高さ。</td>
+          <td><a href="/encoding-settings/assets/encoding-settings-watermarks.html#width">幅</a>、または元のイメージの高さにスケールします。</td>
+          <td>透かしの高さを拡大/縮小します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-watermarks.html#origin"><code translate="No">origin</code></a></td>
           <td>コンテンツ</td>
-          <td>透かしの位置の基になる出力の部分。</td>
+          <td>ウォーターマークの位置の基になる出力のどの部分。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-watermarks.html#opacity"><code translate="No">opacity</code></a></td>
@@ -1470,7 +823,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1479,12 +832,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-captions.html#caption_url"><code translate="No">caption_url</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>出力に含めるSCC、DFXP、またはSAMIキャプションファイルへのURL。</td>
+          <td>出力に含める SCC、DFXP、または SAMI キャプションファイルへの URL。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/assets/encoding-settings-captions.html#skip_captions"><code translate="No">skip_captions</code></a></td>
-          <td>false</td>
-          <td>キャプションを出力ファイルに追加したり、パススルーしたりしないでください。</td>
+          <td>偽</td>
+          <td>出力ファイルにキャプションを追加したり、パススルーしたりしないでください。</td>
         </tr>
       </tbody>
     </table>
@@ -1495,7 +848,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1503,33 +856,33 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody class="bcls-table__body">
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html#rotate"><code translate="No">rotate</code></a></td>
-          <td>自動的に検出</td>
-          <td>ビデオを回転させます。</td>
+          <td>自動的に検出されました</td>
+          <td>ビデオを回転します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html#deinterlace"><code translate="No">deinterlace</code></a></td>
-          <td>検出する</td>
-          <td>インターレース解除入力ビデオ。</td>
+          <td>検出します</td>
+          <td>入力ビデオのインターレース解除</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html#sharpen"><code translate="No">sharpen</code></a></td>
-          <td>false</td>
-          <td>シャープフィルターを適用します。</td>
+          <td>偽</td>
+          <td>シャープフィルタを適用します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html#denoise"><code translate="No">denoise</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ノイズ除去フィルターを適用します。</td>
+          <td>ノイズフィルタを適用します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html#autolevel"><code translate="No">autolevel</code></a></td>
-          <td>false</td>
-          <td>カラーオートレベリングフィルターを適用します。</td>
+          <td>偽</td>
+          <td>カラー自動レベルフィルタを適用します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html#deblock"><code translate="No">deblock</code></a></td>
-          <td>false</td>
-          <td>デブロックフィルターを適用します。</td>
+          <td>偽</td>
+          <td>ブロック解除フィルタを適用します。</td>
         </tr>
       </tbody>
     </table>
@@ -1540,7 +893,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1549,22 +902,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html#audio_gain"><code translate="No">audio_gain</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ゲイン量をdB単位でオーディオに適用します。</td>
+          <td>オーディオにゲイン量をdB単位で適用します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html#audio_normalize"><code translate="No">audio_normalize</code></a></td>
-          <td>false</td>
-          <td>オーディオを0dBに正規化します。</td>
+          <td>偽</td>
+          <td>オーディオを 0dB にノーマライズします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html#audio_pre_normalize"><code translate="No">audio_pre_normalize</code></a></td>
-          <td>false</td>
-          <td>拡張または圧縮効果を適用する前に、オーディオを正規化します。</td>
+          <td>偽</td>
+          <td>拡張または圧縮エフェクトを適用する前に、オーディオをノーマライズします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html#audio_post_normalize"><code translate="No">audio_post_normalize</code></a></td>
-          <td>false</td>
-          <td>拡張または圧縮効果を適用した後、オーディオを正規化します。</td>
+          <td>偽</td>
+          <td>拡張エフェクトまたは圧縮エフェクトを適用した後、オーディオをノーマライズします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html#audio_bass"><code translate="No">audio_bass</code></a></td>
@@ -1609,12 +962,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html#audio_fade"><code translate="No">audio_fade</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>オーディオにフェードインおよびフェードアウト効果を適用します。</td>
+          <td>オーディオにフェードインエフェクトとフェードアウトエフェクトを適用します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html#audio_fade_in"><code translate="No">audio_fade_in</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>オーディオにフェードイン効果を適用します。</td>
+          <td>オーディオにフェードインエフェクトを適用します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html#audio_loudness_level"><code translate="No">audio_loudness_level</code></a></td>
@@ -1623,19 +976,19 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html#audio_karaoke_mode"><code translate="No">audio_karaoke_mode</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>オーディオにカラオケエフェクトを適用します。</td>
         </tr>
       </tbody>
     </table>
   </section>
   <section class="bcls-section">
-    <h2 id="Clips">クリップ</h2>
+    <h2 id="Clips">[クリップ]</h2>
   </section>
   <table class="bcls-table">
     <thead class="bcls-table__head">
       <tr>
-        <th>設定</th>
+        <th>設定する</th>
         <th>デフォルト</th>
         <th>説明</th>
       </tr>
@@ -1644,12 +997,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tr>
         <td><a href="/encoding-settings/assets/encoding-settings-clips.html#start_clip"><code translate="No">start_clip</code></a></td>
         <td><span class="none">なし</span></td>
-        <td>カスタム開始時間を設定して、入力ファイルの一部のみをエンコードします。</td>
+        <td>カスタム開始時刻を設定して、入力ファイルの一部のみをエンコードします。</td>
       </tr>
       <tr>
         <td><a href="/encoding-settings/assets/encoding-settings-clips.html#clip_length"><code translate="No">clip_length</code></a></td>
         <td><span class="none">なし</span></td>
-        <td>カスタムクリップの長さを設定して、入力ファイルの一部のみをエンコードします。</td>
+        <td>クリップの長さをカスタム設定して、入力ファイルの一部だけをエンコードします。</td>
       </tr>
     </tbody>
   </table>
@@ -1659,7 +1012,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1667,12 +1020,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody class="bcls-table__body">
         <tr>
           <td><a href="/encoding-settings/sources-destinations/encoding-settings-s3-settings.html#public"><code translate="No">public</code></a></td>
-          <td>false</td>
-          <td>S3 で出力をパブリックに読み取り可能にします。</td>
+          <td>偽</td>
+          <td>S3 で出力をパブリックに読みやすくします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/sources-destinations/encoding-settings-s3-settings.html#rrs"><code translate="No">rrs</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>Amazon S3 の冗長化ストレージです。</td>
         </tr>
         <tr>
@@ -1683,12 +1036,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/sources-destinations/encoding-settings-s3-settings.html#grantee"><code translate="No">grantee</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>きめ細かいS3access_control権限の被付与者を設定します。</td>
+          <td>きめ細かなS3アクセスコントロールアクセス許可の被付与者を設定します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/sources-destinations/encoding-settings-s3-settings.html#permission"><code translate="No">permission</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>きめ細かいaccess_controlを使用する場合は、被付与者のアクセス許可を設定します。</td>
+          <td>きめ細かなaccess_control を使用する場合に、被付与者のパーミッションを設定します。</td>
         </tr>
       </tbody>
     </table>
@@ -1699,7 +1052,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1723,7 +1076,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-notifications.html#headers"><code translate="No">headers</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>HTTP通知で渡すヘッダー。</td>
+          <td>HTTP 通知に渡すヘッダー。</td>
         </tr>
         <!-- <tr>
 				<td><a href="/node/17881#event"><code translate="No">event</code></a></td>
@@ -1739,7 +1092,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1748,51 +1101,51 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html#min_size"><code translate="No">min_size</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ソースの寸法が指定された寸法よりも小さい場合は、出力をスキップします。</td>
+          <td>ソース次元が指定された次元より小さい場合は、出力をスキップします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html#max_size"><code translate="No">max_size</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ソースの寸法が指定された寸法よりも大きい場合は、出力をスキップします。</td>
+          <td>ソース次元が指定された次元より大きい場合は、出力をスキップします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html#min_duration"><code translate="No">min_duration</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ソース期間が指定された期間（秒単位）より短い場合は、出力をスキップします。</td>
+          <td>ソースデュレーションが指定された期間（秒単位）よりも短い場合は、出力をスキップします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html#max_duration"><code translate="No">max_duration</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ソース期間が指定された期間（秒単位）より長い場合は、出力をスキップします。</td>
+          <td>ソースデュレーションが指定された期間（秒単位）よりも長い場合は、出力をスキップします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html#min_audio_bitrate"><code translate="No">min_audio_bitrate</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ソースオーディオのビットレートが指定されたビットレート（kbps単位）よりも小さい場合は、出力をスキップします。</td>
+          <td>ソースオーディオビットレートが指定ビットレート（kbps）より小さい場合は、出力をスキップします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html#max_audio_bitrate"><code translate="No">max_audio_bitrate</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ソースオーディオのビットレートが指定されたビットレート（kbps単位）より大きい場合は、出力をスキップします。</td>
+          <td>ソースオーディオビットレートが指定ビットレート（kbps）より大きい場合は、出力をスキップします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html#min_video_bitrate"><code translate="No">min_video_bitrate</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ソースビデオのビットレートが指定されたビットレート（kbps単位）よりも小さい場合は、出力をスキップします。</td>
+          <td>ソースビデオのビットレートが指定ビットレート（kbps）より小さい場合は、出力をスキップします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html#max_video_bitrate"><code translate="No">max_video_bitrate</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ソースビデオのビットレートが指定されたビットレート（kbps単位）より大きい場合は、出力をスキップします。</td>
+          <td>ソースビデオのビットレートが指定ビットレート（kbps）より大きい場合は、出力をスキップします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html#require_audio"><code translate="No">require_audio</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>ソースファイルにオーディオトラックが含まれていない場合は、出力をスキップします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html#require_video"><code translate="No">require_video</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>ソースファイルにビデオトラックが含まれていない場合は、出力をスキップします。</td>
         </tr>
       </tbody>
@@ -1804,7 +1157,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1813,7 +1166,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#streaming_delivery_format"><code translate="No">streaming_delivery_format</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ストリーミング可能な出力のフォーマット/プロトコル構成を設定します。</td>
+          <td>ストリーム可能な出力の形式/プロトコル設定を設定します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#streaming_delivery_profile"><code translate="No">streaming_delivery_profile</code></a></td>
@@ -1823,22 +1176,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#playlist_format"><code translate="No">playlist_format</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>プレイリスト出力のフォーマットを設定します。</td>
+          <td>プレイリスト出力の形式を設定します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#segment_seconds"><code translate="No">segment_seconds</code></a></td>
           <td>10</td>
-          <td>セグメント化された出力の各セグメントの最大期間を設定します。</td>
+          <td>セグメント化された出力の各セグメントの最大持続時間を設定します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#alternate_audio"><code translate="No">alternate_audio</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>HLSプレイリストの代替オーディオストリームのセットを提供します。</td>
+          <td>HLS プレイリストの代替オーディオストリームのセットを提供します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#streams"><code translate="No">streams</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>プレイリストとして再フォーマットされるストリーム情報のリストを提供します</td>
+          <td>再生リストとして再フォーマットするストリーム情報のリストを提供します</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#path"><code translate="No">path</code></a></td>
@@ -1863,17 +1216,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#audio"><code translate="No">audio</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>プレイリストの代替オーディオトラックを指定します。</td>
+          <td>再生リストの代替オーディオトラックを指定します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#segment_image_url"><code translate="No">segment_image_url</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>音声のみのセグメントに表示する画像</td>
+          <td>オーディオのみのセグメントに表示する画像</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#segment_video_snapshots"><code translate="No">segment_video_snapshots</code></a></td>
-          <td>false</td>
-          <td>ビデオファイルを音声のみのセグメントにセグメント化する場合は、ビデオのスナップショットを各セグメントのサムネイルとして作成します。</td>
+          <td>偽</td>
+          <td>ビデオファイルをオーディオのみのセグメントに分割する場合は、ビデオのスナップショットを各セグメントのサムネイルとして撮ります。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#source"><code translate="No">source</code></a></td>
@@ -1882,43 +1235,43 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#max_hls_protocol_version"><code translate="No">max_hls_protocol_version</code></a></td>
-          <td>ライブ出力用に3つ、サンプルAES暗号化用に5つ。それ以外の場合、2。</td>
-          <td>使用する最大HLSプロトコル。</td>
+          <td>ライブ出力の場合は 3、サンプル AES 暗号化の場合は 5、それ以外の場合は 2。</td>
+          <td>使用する最大 HLS プロトコル。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#hls_optimized_ts"><code translate="No">hls_optimized_ts</code></a></td>
-          <td>true</td>
-          <td>iOSでのHTTPライブストリーミング用にTSセグメントファイルを最適化します。</td>
+          <td>本当</td>
+          <td>iOS での HTTP ライブストリーミング用の TS セグメントファイルを最適化します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#prepare_for_segmenting"><code translate="No">prepare_for_segmenting</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>セグメント化のためのキャプションとキーフレームのタイミングを含めます。</td>
+          <td>セグメント化のキャプションとキーフレームのタイミングを含めます。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#smil-base-url"><code translate="No">smil_base_url</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>SMILプレイリストの&lt;head&gt;セクションに&lt;metabase = "smil_base_url_value" /&gt;を追加します。</td>
+          <td>&lt;meta base="smil_base_url_value"/&gt; を SMIL プレイリストの &lt;head&gt; セクションに追加します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#byte_range_segmenting"><code translate="No">byte_range_segmenting</code></a></td>
-          <td>false</td>
-          <td>セグメントごとに1つのファイルではなく、単一の出力ファイルを生成するようにHLSセグメント化を構成します。</td>
+          <td>偽</td>
+          <td>セグメントごとに 1 ファイルではなく 1 つの出力ファイルを生成するように HLS セグメント化を設定します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#generate_keyframe_manifest"><code translate="No">generate_keyframe_manifest</code></a></td>
-          <td>false</td>
-          <td>早送りと巻き戻しの再生に必要なHLSキーフレーム（Iフレーム）マニフェストを生成します。</td>
+          <td>偽</td>
+          <td>早送りおよび逆再生に必要な HLS キーフレーム (I フレーム) マニフェストを生成します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#keyframe_manifest_filename"><code translate="No">keyframe_manifest_filename</code></a></td>
           <td>iframe_index.m3u8</td>
-          <td>HLSキーフレームマニフェストのデフォルトのファイル名を上書きします。</td>
+          <td>HLS キーフレームマニフェストのデフォルトのファイル名を上書きします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html#allow_skipped_sources"><code translate="No">allow_skipped_sources</code></a></td>
-          <td>false</td>
-          <td>次のソースを無視します<a href="/encoding-settings/general/encoding-settings-conditional-outputs.html">条件付き出力</a>スキップされました。</td>
+          <td>偽</td>
+          <td><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html"></a>スキップされた条件付き出力であるソースを無視します。</td>
         </tr>
       </tbody>
     </table>
@@ -1929,7 +1282,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1938,32 +1291,32 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-encryption.html#encryption_method"><code translate="No">encryption_method</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>暗号化に使用する暗号化方式を設定します。</td>
+          <td>暗号化に使用する暗号化方法を設定します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-encryption.html#encryption_key"><code translate="No">encryption_key</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>Zencoderに暗号化キーを生成させるのではなく、使用する単一の暗号化キーを設定します</td>
+          <td>Zencoder に暗号化キーを生成させるのではなく、使用する暗号化キーを 1 つ設定する</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-encryption.html#encryption_key_url"><code translate="No">encryption_key_url</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>Zencoderに暗号化キーを生成させるのではなく、使用する単一の暗号化キーにURLを設定します</td>
+          <td>URL を Zencoder に生成させるのではなく、使用する単一の暗号化キーに設定します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-encryption.html#encryption_key_rotation_period"><code translate="No">encryption_key_rotation_period</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>いくつかのセグメントの後、新しい暗号化キーにローテーションします</td>
+          <td>複数のセグメントの後に新しい暗号化キーにローテーションする</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-encryption.html#encryption_key_url_prefix"><code translate="No">encryption_key_url_prefix</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>渡された文字列をキーURLの前に付ける</td>
+          <td>渡された文字列でキーURLを先頭に付加する</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-encryption.html#encryption_iv"><code translate="No">encryption_iv</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>暗号化時に使用する初期化ベクトルを設定します</td>
+          <td>暗号化時に使用する初期化ベクトルを設定する</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-encryption.html#encryption_password"><code translate="No">encryption_password</code></a></td>
@@ -1979,7 +1332,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -1987,7 +1340,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody class="bcls-table__body">
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-decryption.html#decryption_method"><code translate="No">decryption_method</code></a></td>
-          <td>aes-128-cbc（if <a href="/encoding-settings/content-protection/encoding-settings-decryption.html#decryption_key"><code translate="No">decryption_key</code></a>または<a href="/encoding-settings/content-protection/encoding-settings-decryption.html#decryption_key_url"><code translate="No">decryption_key_url</code></a>設定されています）</td>
+          <td>aes-128-cbc (if <a href="/encoding-settings/content-protection/encoding-settings-decryption.html#decryption_key"><code translate="No">decryption_key</code></a> or) <a href="/encoding-settings/content-protection/encoding-settings-decryption.html#decryption_key_url"><code translate="No">decryption_key_url</code></a>設定されている)</td>
           <td>使用する復号化アルゴリズムを設定します。</td>
         </tr>
         <tr>
@@ -1998,12 +1351,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-decryption.html#decryption_key_url"><code translate="No">decryption_key_url</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>使用する復号化キーファイルのURL。</td>
+          <td>使用する復号化キーファイルの URL。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-decryption.html#decryption_password"><code translate="No">decryption_password</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>入力ファイルを復号化するためにキーと組み合わせて使用されるパスワード。</td>
+          <td>入力ファイルを復号化するためのキーと組み合わせて使用されるパスワード。</td>
         </tr>
       </tbody>
     </table>
@@ -2014,7 +1367,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -2028,12 +1381,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-drm.html#method"><code translate="No">method</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>コンテンツを保護するために使用されるデジタル著作権管理（DRM）方式。</td>
+          <td>コンテンツを保護するために使用されるデジタル著作権管理 (DRM) 方法。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-drm.html#provider"><code translate="No">provider</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>使用されるデジタル著作権管理（DRM）プロバイダー。</td>
+          <td>デジタル著作権管理 (DRM) プロバイダが使用しました。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-drm.html#key_id"><code translate="No">key_id</code></a></td>
@@ -2048,12 +1401,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-drm.html#user_key"><code translate="No">user_key</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>DRMプロバイダーからのユーザーキー。</td>
+          <td>DRM プロバイダーのユーザーキー。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-drm.html#server_key"><code translate="No">server_key</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>DRMプロバイダーからのサーバーキー。</td>
+          <td>DRM プロバイダーからのサーバーキー。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-drm.html#media_id"><code translate="No">media_id</code></a></td>
@@ -2073,17 +1426,17 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-drm.html#schemas"><code translate="No">schemas</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>CommonEncryptionを使用する場合のDRMプロバイダーに関する情報。</td>
+          <td>共通暗号化を使用する場合の DRM プロバイダーに関する情報。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-drm.html#type"><code translate="No">type</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>このDRMスキーマのプロバイダータイプ。</td>
+          <td>この DRM スキーマのプロバイダの種類。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/content-protection/encoding-settings-drm.html#license_acquisition_url"><code translate="No">license_acquisition_url</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>のライセンス取得URL <code translate="No">Playready CENC DRM</code>スキーマ。</td>
+          <td><code translate="No">Playready CENC DRM</code>スキーマのライセンス取得 URL。</td>
         </tr>
       </tbody>
     </table>
@@ -2094,7 +1447,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -2103,43 +1456,68 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#h264_reference_frames"><code translate="No">h264_reference_frames</code></a></td>
           <td>3</td>
-          <td>H.264ビデオで使用する参照フレームの数。</td>
+          <td>H.264 ビデオで使用する多数の参照フレーム。</td>
         </tr>
         <tr>
-          <td>h264_profile<a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#h264_profile"></a></td>
+          <td><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#h264_profile">profile</a></td>
           <td>ベースライン&gt;</td>
-          <td>使用するH.264プロファイル。</td>
+          <td>使用する H.264 プロファイル。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#h264_level"><code translate="No">h264_level</code></a></td>
           <td>を使用して自動的に計算<a href="http://en.wikipedia.org/wiki/H.264#Levels">H.264レベルチャート</a>出力ビデオに基づいています。</td>
-          <td>使用するH.264レベル。</td>
+          <td>使用する H.264 レベル。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#h264_bframes"><code translate="No">h264_bframes</code></a></td>
           <td>0</td>
-          <td>連続するBフレームの最大数。</td>
+          <td>連続した B フレームの最大数。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#tuning"><code translate="No">tuning</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>特定のコンテンツタイプに合わせて出力ビデオを調整します。</td>
+          <td>特定のコンテンツタイプに合わせて出力ビデオをチューニングします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#crf"><code translate="No">crf</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ビットレート制御設定。</td>
+          <td>ビットレート制御の設定。</td>
         </tr>
       </tbody>
     </table>
-  </section>
+  </section>  
+  <!-- <section class=" bcls-section">
+    <h2 id="Av1">AV1</h2>
+
+    <table class="bcls-table">
+      <thead class="bcls-table__head">
+        <tr>
+          <th>Setting</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody class="bcls-table__body">
+        <tr>
+          <td><a href="/encoding-settings/formats-codecs/encoding-settings-av1.html#video_codec_level"><code translate="No">video_codec_level</code></a></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td><a href="/encoding-settings/formats-codecs/encoding-settings-av1.html#video_codec_profile"><code translate="No">video_codec_profile</code></a></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </section> -->
   <section class="bcls-section">
     <h2 id="HDR10">HDR10</h2>
 
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -2147,63 +1525,63 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody class="bcls-table__body">
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#master_display_red_x"><code translate="No">master_display.red.x</code></a></td>
-          <td>なし</td>
-          <td>赤のカラーボリュームx設定。</td>
+          <td>無し</td>
+          <td>赤の色量 x の設定。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#master_display_red_y"><code translate="No">master_display.red.y</code></a></td>
-          <td>なし</td>
-          <td>赤のカラーボリュームy設定。</td>
+          <td>無し</td>
+          <td>赤の色ボリュームy設定。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#master_display_green_x"><code translate="No">master_display.green.x</code></a></td>
           <td>なし。</td>
-          <td>緑のカラーボリュームx設定。</td>
+          <td>緑の色量 x の設定。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#master_display_green_y"><code translate="No">master_display.green.y</code></a></td>
           <td>なし。</td>
-          <td>緑のカラーボリュームy設定。</td>
+          <td>緑の色ボリュームy設定。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#master_display_blue_x"><code translate="No">master_display.blue.x</code></a></td>
           <td>なし。</td>
-          <td>青のカラーボリュームx設定。</td>
+          <td>青の色量 x の設定。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#master_display_blue_y"><code translate="No">master_display.blue.y</code></a></td>
           <td>なし。</td>
-          <td>青のカラーボリュームy設定。</td>
+          <td>青の色ボリュームy設定。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#master_display_white_point_x"><code translate="No">master_display.white_point.x</code></a></td>
           <td>なし。</td>
-          <td>白色点のカラーボリュームx設定。</td>
+          <td>ホワイトポイントのカラーボリュームx設定。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#master_display_white_point_y"><code translate="No">master_display.white_point.y</code></a></td>
           <td>なし。</td>
-          <td>白色点のカラーボリュームy設定。</td>
+          <td>ホワイトポイントのカラーボリュームy設定。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#master_display_luminance_min"><code translate="No">master_display.luminance.min</code></a></td>
           <td>なし。</td>
-          <td>平方メートルあたりのニットまたはカンデラ単位の最小輝度（cd / m2）。</td>
+          <td>平方メートルあたりの最小輝度 (ニットまたはカンデラ単位) (cd/m2)。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#master_display_luminance_max"><code translate="No">master_display.luminance.max</code></a></td>
           <td>なし。</td>
-          <td>平方メートルあたりのニットまたはカンデラ単位の最大輝度（cd / m2）。</td>
+          <td>平方メートルあたりの最大輝度 (ニットまたはカンデラ単位) (cd/m2)。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#max_content_light_level"><code translate="No">max_content_light_level</code></a></td>
           <td>なし。</td>
-          <td>コンテンツ全体の最大光レベル1平方メートルあたりのニットまたはカンデラ（cd / m2）-整数値。</td>
+          <td>総ニットまたはカンデラ/平方メートル（cd/m2）としてのコンテンツの最大光レベル-整数。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html#max_frame_average_light_level"><code translate="No">max_frame_average_light_level</code></a></td>
           <td>なし。</td>
-          <td>平方メートルあたりのコンテンツフレームニットまたはカンデラの最大平均光レベル（cd / m2）-整数値。10000までの値が許可されますが、100〜200の範囲の値が一般的に最良の結果を生成します。</td>
+          <td>コンテンツフレームニットまたはカンデラ/平方メートル (cd/m2) の最大平均光レベル-整数。10000 までの値を指定できますが、通常は 100 ～ 200 の範囲の値を指定すると、最適な結果が得られます。</td>
         </tr>
       </tbody>
     </table>
@@ -2214,7 +1592,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -2223,7 +1601,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-flv.html#cue_points"><code translate="No">cue_points</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>イベントまたはナビゲーションキューポイントをFLVビデオに追加します。</td>
+          <td>FLV ビデオにイベントキューポイントまたはナビゲーションキューポイントを追加します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-flv.html#type"><code translate="No">type</code></a></td>
@@ -2233,7 +1611,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-flv.html#time"><code translate="No">time</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>秒単位のキューポイント時間。</td>
+          <td>キューポイント時間（秒単位）。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-flv.html#name"><code translate="No">name</code></a></td>
@@ -2254,7 +1632,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -2263,12 +1641,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#vp6_temporal_down_watermark"><code translate="No">vp6_temporal_down_watermark</code></a></td>
           <td>20</td>
-          <td>VP6の一時的なダウンウォーターマークのパーセンテージ。</td>
+          <td>VP6 の一時的な下ウォーターマークのパーセンテージ。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#vp6_temporal_resampling"><code translate="No">vp6_temporal_resampling</code></a></td>
-          <td>ピクセルあたりのビット数が少ない場合はTrue。それ以外の場合はfalse。</td>
-          <td>VP6時間リサンプリングを有効または無効にします。</td>
+          <td>ピクセルあたりのビット数が少ない場合にtrueです。それ以外の場合は false。</td>
+          <td>VP6 テンポラルリサンプリングを有効または無効にします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#vp6_undershoot_pct"><code translate="No">vp6_undershoot_pct</code></a></td>
@@ -2278,22 +1656,22 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#vp6_profile"><code translate="No">vp6_profile</code></a></td>
           <td>vp6e</td>
-          <td>VP6プロファイル：vp6sまたはvp6e。</td>
+          <td>VP6プロファイル：vp6sまたはVP6e。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#vp6_compression_mode"><code translate="No">vp6_compression_mode</code></a></td>
           <td>良い</td>
-          <td>VP6圧縮モード：<code translate="No">good</code>または<code translate="No">best</code>。</td>
+          <td>VP6 圧縮モード: <code translate="No">good</code>または<code translate="No">best</code>。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#vp6_2pass_min_section"><code translate="No">vp6_2pass_min_section</code></a></td>
           <td>40</td>
-          <td>2パスVBRエンコーディングの場合、エンコーダが許可する最低のデータレート。</td>
+          <td>2 パス VBR エンコーディングの場合、エンコーダが許容する最も低いデータレート。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#vp6_2pass_max_section"><code translate="No">vp6_2pass_max_section</code></a></td>
           <td>400</td>
-          <td>2パスVBRエンコーディングの場合、エンコーダが許可する最高のデータレート。</td>
+          <td>2 パス VBR エンコーディングの場合、エンコーダが許容する最も高いデータレート。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#vp6_stream_prebuffer"><code translate="No">vp6_stream_prebuffer</code></a></td>
@@ -2303,27 +1681,27 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#vp6_stream_max_buffer"><code translate="No">vp6_stream_max_buffer</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>最大デコーダバッファサイズ</td>
+          <td>デコーダバッファの最大サイズ</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#vp6_deinterlace_mode"><code translate="No">vp6_deinterlace_mode</code></a></td>
-          <td>アダプティブ</td>
-          <td>VP6のインターレース解除モード</td>
+          <td>適応的</td>
+          <td>VP6 のインターレース解除モード</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#vp6_denoise_level"><code translate="No">vp6_denoise_level</code></a></td>
           <td>0</td>
-          <td>VP6のノイズ除去レベル</td>
+          <td>VP6のノイズレベル</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#alpha_transparency"><code translate="No">alpha_transparency</code></a></td>
-          <td>false</td>
+          <td>偽</td>
           <td>アルファ透明度を有効にします。現在、VP6でのみサポートされています。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html#constant_bitrate"><code translate="No">constant_bitrate</code></a></td>
-          <td>false</td>
-          <td>固定ビットレート（CBR）エンコーディングを使用します。</td>
+          <td>偽</td>
+          <td>固定ビットレート (CBR) エンコーディングを使用します。</td>
         </tr>
       </tbody>
     </table>
@@ -2334,7 +1712,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -2342,13 +1720,13 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody class="bcls-table__body">
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-mp4.html#hint"><code translate="No">hint</code></a></td>
-          <td>false</td>
-          <td>RTP / RTSPのMP4ファイルのヒントを有効にします。</td>
+          <td>偽</td>
+          <td>RTP/RTSP の MP4 ファイルのヒントを有効にします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-mp4.html#mtu_size"><code translate="No">mtu_size</code></a></td>
           <td>1450</td>
-          <td>MP4ヒントのMTUサイズを設定します。</td>
+          <td>MP4 ヒントの MTU サイズを設定します。</td>
         </tr>
       </tbody>
     </table>
@@ -2359,7 +1737,7 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -2367,24 +1745,24 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody class="bcls-table__body">
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-aac.html#max_aac_profile"><code translate="No">max_aac_profile</code></a></td>
-          <td>he-aac</td>
-          <td>許可する最も高度な（圧縮された）AACプロファイルは何ですか？</td>
+          <td>He-aac</td>
+          <td>許可する最も高度な（圧縮）AAC プロファイルは何ですか？</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/formats-codecs/encoding-settings-aac.html#force_aac_profile"><code translate="No">force_aac_profile</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>Zencoderにビットレートに最適なプロファイルを選択させるのではなく、特定のAACプロファイルの使用を強制します。</td>
+          <td>Zencoder がビットレートに最適なプロファイルを選択するのではなく、特定の AAC プロファイルを強制的に使用します。</td>
         </tr>
       </tbody>
     </table>
   </section>
   <section class="bcls-section">
-    <h2 id="Broadcast">放送番組</h2>
+    <h2 id="Broadcast">放送開始</h2>
 
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -2398,53 +1776,53 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html#format_preset"><code translate="No">format_preset</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>特定の業界標準との互換性を可能にするプリセットをフォーマットします。</td>
+          <td>特定の業界標準との互換性を可能にするフォーマットプリセット。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html#ts_muxrate"><code translate="No">ts_muxrate</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>トランスポートストリームを多重化できるkbps単位の最大レート。ts形式でのみ使用されます。</td>
+          <td>トランスポートストリームを多重化できる最大レート（kbps）。TS 形式でのみ使用します。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html#ts_pmt_pid"><code translate="No">ts_pmt_pid</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>プログラムマップテーブルのパケットIDを上書きします。</td>
+          <td>プログラムマップテーブルのパケット ID を上書きします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html#ts-video-pid"><code translate="No">ts_video_pid</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>ビデオデータのパケットIDを上書きします。</td>
+          <td>ビデオデータのパケット ID を上書きします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html#ts_audio_pid"><code translate="No">ts_audio_pid</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>オーディオデータのパケットIDを上書きします。</td>
+          <td>オーディオデータのパケット ID を上書きします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html#ts_pcr_pid"><code translate="No">ts_pcr_pid</code></a></td>
           <td><span class="none">なし</span></td>
-          <td>プログラムクロックリファレンスのパケットIDを上書きします。</td>
+          <td>プログラムクロックリファレンスのパケット ID を上書きします。</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html#ts_cbr"><code translate="No">ts_cbr</code></a></td>
-          <td>false</td>
-          <td>トランスポートストリームレイヤーでパケットを詰め込んでCBR出力を作成します</td>
+          <td>偽</td>
+          <td>トランスポートストリーム層でパケットをスタッフィングして CBR 出力を作成する</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html#lossless_video"><code translate="No">lossless_video</code></a></td>
-          <td>false</td>
-          <td>ビデオコーデックでサポートされている場合、ロスレスビデオエンコーディングを有効にします。</td>
+          <td>偽</td>
+          <td>ビデオコーデックがサポートしている場合、可逆ビデオエンコーディングをイネーブルにします。</td>
         </tr>
       </tbody>
     </table>
   </section>
   <section class="bcls-section">
-    <h2 id="Aspera">Aspera</h2>
+    <h2 id="Aspera">アスペラ</h2>
 
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -2469,12 +1847,12 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     </table>
   </section>
   <section class="bcls-section">
-    <h2 id="Transmuxing">トランスマックス</h2>
+    <h2 id="Transmuxing">transmuxing</h2>
 
     <table class="bcls-table">
       <thead class="bcls-table__head">
         <tr>
-          <th>設定</th>
+          <th>設定する</th>
           <th>デフォルト</th>
           <th>説明</th>
         </tr>
@@ -2482,143 +1860,15 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <tbody class="bcls-table__body">
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-transmuxing.html#copy_video"><code translate="No">copy_video</code></a></td>
-          <td>false</td>
-          <td>入力ファイルのビデオトラックをコピーします</td>
+          <td>偽</td>
+          <td>入力ファイルのビデオトラックをコピーする</td>
         </tr>
         <tr>
           <td><a href="/encoding-settings/general-audio-video/encoding-settings-transmuxing.html#copy_audio"><code translate="No">copy_audio</code></a></td>
-          <td>false</td>
-          <td>入力ファイルのオーディオトラックをコピーします</td>
+          <td>偽</td>
+          <td>入力ファイルのオーディオトラックをコピーする</td>
         </tr>
       </tbody>
     </table>
   </section>
 </article>
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">ページコンテンツ</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>Brightcove サポート</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">システムステータス</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">サポートへのお問い合わせ</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">ドキュメンテーション</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>トレーニング</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">オンラインコース</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">コースに登録する</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Brightcove University</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">Brightcove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">お問合せ</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">プライバシー</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">利用規約</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.677.0.min.js"></script> -->
-</body>
-
-</html>

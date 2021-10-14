@@ -1,681 +1,37 @@
-﻿<!doctype html>
-<html lang="ja">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="このトピックには、オーディオに関連するエンコード設定の詳細が含まれています。">
-
-  <title>オーディオ設定</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&amp;display=swap">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/prism.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/landing-page.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/tabs.css">
-  <link rel="stylesheet" href="https://support.brightcove.com/site-assets/css/site/styles.css">
-  <link rel="stylesheet" href="/assets/css/local.css">
-  <link data-react-helmet="true" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap">
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/381443caa8.js" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/google-analytics.js"></script>
-  <script src="/assets/js/sajari-head.js"></script>
-</head>
-
-<body class="body">
-
-<header>
-  <div class="div-header">
-    <a href="/"><img class="product-logo" src="https://support.brightcove.com/site-assets/images/site/product-logos/Zencoder_Logo.svg" alt="製品ロゴ" style="max-height: 100px;max-width: 232px;"/></a>
-<!-- GTranslate: https://gtranslate.io/ -->
-<select onchange="doGTranslate(this);"><option value="">言語の選択</option><option value="en|en" translate="No">English</option><option value="en|zh-TW" translate="No">繁體中文</option><option value="en|fr" translate="No">Français</option><option value="en|de" translate="No">Deutsche</option><option value="en|ja" translate="No">日本語</option><option value="en|ko" translate="No">한국어</option><option value="en|es" translate="No">Español</option></select>
-
-<script>
-/* <![CDATA[ */
-function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;if(lang_pair=='')return;var lang=lang_pair.split('|')[1];var plang=location.hostname.split('.')[0];if(plang.length !=2 && plang.toLowerCase() != 'zh-cn' && plang.toLowerCase() != 'zh-tw')plang='en';location.href=location.protocol+'//'+(lang == 'en' ? '' : lang+'.')+location.hostname.replace('www.', '').replace(RegExp('^' + plang + '\\.'), '')+location.pathname+location.search;}
-/* ]]> */
-</script>
-
-
-
-    <span class="secondary-nav"><a href="https://supportportal.brightcove.com/s/login/?"><img src="https://support.brightcove.com/site-assets/images/site/support.png" alt="サポート"/> サポートへのお問い合わせ</a> <span style="vertical-align: top;margin-left:1em;margin-right:1em;">|</span> <a href="https://status.brightcove.com/"><img src="https://support.brightcove.com/site-assets/images/site/status.png" alt="システムステータス"/> システムステータス</a></span> <br/>
-    
-  </div>
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb arr-right">
-      
-      <li class="breadcrumb-item"><a href="/">ホーム</a></li>
-      
-      
-      
-      <li class="breadcrumb-item"><a href="/encoding-settings/general-audio-video/">オーディオ/ビデオ設定</a></li>
-      
-      <li class="breadcrumb-item active" aria-current="page">オーディオ設定</li>
-    </ol>
-  </nav>
-</header>
-<div class="container">
-    <div class="row">
-            <div class="col-sm-3 left-side-bar">
-        <select id="site_select" class="bcls-select" style="margin-right: 1rem;">
-          <option value="">Brightcove のその他のドキュメント</option>
-          
-            
-              <option value="https://support.brightcove.com">ドキュメントホーム</option>
-            
-          
-            
-              <option value="https://audience.support.brightcove.com">Brightcove Audience</option>
-            
-          
-            
-              <option value="https://beacon.support.brightcove.com">Brightcove ビーコン</option>
-            
-          
-            
-              <option value="https://campaign.support.brightcove.com">Brightcove キャンペーン</option>
-            
-          
-            
-              <option value="https://engage.support.brightcove.com">Brightcove Engage</option>
-            
-          
-            
-              <option value="https://live.support.brightcove.com">Brightcove ・ライブ</option>
-            
-          
-            
-              <option value="https://gallery.support.brightcove.com">Brightcove ギャラリー</option>
-            
-          
-            
-              <option value="https://ssai.support.brightcove.com">Brightcove SSAI</option>
-            
-          
-            
-              <option value="https://social.support.brightcove.com">Brightcove ソーシャル</option>
-            
-          
-            
-              <option value="https://studio.support.brightcove.com">Video Cloud Studio</option>
-            
-          
-            
-              <option value="https://player.support.brightcove.com">Brightcove のプレーヤー開発</option>
-            
-          
-            
-              <option value="https://apis.support.brightcove.com">Video CloudプラットフォームAPI</option>
-            
-          
-            
-              <option value="https://sdks.support.brightcove.com">ビデオクラウドデバイス SDK</option>
-            
-          
-            
-              <option value="https://integrations.support.brightcove.com">統合および CMS コネクタ</option>
-            
-          
-            
-              <option value="https://general.support.brightcove.com">ビデオクラウドの一般情報</option>
-            
-          
-            
-              <option value="https://zencoder.support.brightcove.com">Zencoder</option>
-            
-          
-        </select>
-
-        <nav class="sidenav" id="side_nav">
-          
-            
-            <h5><a href="/index.html">ホーム</a></h5>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/getting-started/index.html">はじめに<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/getting-started/overview-zencoder.html">概要</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/quick-start-zencoder.html">クイックスタート</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/getting-api-key.html">API キーの取得</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/output-settings.html">出力設定</a></li>
-                  
-                
-                  
-                    <li><a href="/getting-started/creating-multiple-outputs.html">複数の出力を作成する</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/general-information/index.html">一般情報<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/general-information/faq-basics.html">基本</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-codecs-and-formats.html">コーデックと形式</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-encoding.html">エンコーディング</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-file-transfers.html">ファイル転送</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-zencoder-pricing.html">Zencoder の価格設定</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/faq-rate-limiting.html">レート制限</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/supported-video-and-audio-formats-codecs-and-containers.html">サポートされているビデオおよびオーディオ形式</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/overview-context-aware-encoding.html">概要:コンテキスト認識エンコーディング</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/getting-notifications-when-videos-are-finished.html">動画が終了したときに通知を受け取る</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/how-zencoder-saves-your-files-when-uploads-fail.html">アップロードに失敗したときの Zencoder によるファイルの保存方法</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-s3.html">S3 での Zencoder の使用</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-azure.html">Azure での Zencoder の使用</a></li>
-                  
-                
-                  
-                    <li><a href="/general-information/using-zencoder-google-cloud-platform.html">Google クラウドストレージで Zencoder を使用する</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/references/index.html">参考文献<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/references/reference.html">API リファレンス</a></li>
-                  
-                
-                  
-                    <li><a href="/references/known-issues.html">既知の問題</a></li>
-                  
-                
-                  
-                    <li><a href="/references/release-notes.html">製品のアップデート</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/encoding-settings/index.html">エンコード設定<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/general/index.html">一般設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-job.html">ジョブ設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-general-output-settings.html">一般出力設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general/cae-settings.html">CAE 設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-conditional-outputs.html">条件付き出力設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general/encoding-settings-notifications.html">通知設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/general-audio-video/index.html">オーディオ/ビデオ設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio.html">オーディオ設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-audio-processing.html">オーディオ処理の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video.html">ビデオ設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-video-processing.html">ビデオ処理の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-broadcast.html">ブロードキャスト設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-frame-rate.html">フレームレートの設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html">レートコントロール設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html">解像度の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-segmented-streaming.html">セグメント化されたストリーミング設定</a></li>
-                        
-                        <li><a href="/encoding-settings/general-audio-video/encoding-settings-transmuxing.html">トランスマルチシング設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/formats-codecs/index.html">形式とコーデック設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html">フォーマットとコーデックの設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-aac.html">AAC 設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-flv.html">FLV 設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-hdr10.html">HDR 設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html">H.264設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-mp4.html">MP4 設定</a></li>
-                        
-                        <li><a href="/encoding-settings/formats-codecs/encoding-settings-vp6.html">VP6設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/assets/index.html">メディアアセット設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-captions.html">キャプション設定</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-clips.html">クリップ設定</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-thumbnails.html">サムネイル設定</a></li>
-                        
-                        <li><a href="/encoding-settings/assets/encoding-settings-watermarks.html">透かしの設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/content-protection/index.html">コンテンツ保護の設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-encryption.html">暗号化の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-decryption.html">復号化の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/content-protection/encoding-settings-drm.html">DRM 設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/encoding-settings/sources-destinations/index.html">ソース/送信先設定<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-s3-settings.html">S3 の設定</a></li>
-                        
-                        <li><a href="/encoding-settings/sources-destinations/encoding-settings-aspera.html">アスペラ設定</a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/encoding-guides/index.html">エンコードガイド<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/encoding-guides/advanced-audio-mapping-guide.html">オーディオマッピングガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/as11-mxf.html">AS-11-MXFガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/avc-intra-guide.html">AVC-イントラガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/cae-guide.html">CAEガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/creating-mp4-and-hls-outputs-together.html">トランスマルチシングガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/dash-streaming-and-playlists.html">DASH ストリーミングとプレイリスト</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/h264-advanced-guide.html">H.264 アドバンスド・ガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/hdr10-video-output.html">サポートされている HDR ビデオ形式</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/hevch265-guide.html">HEVC/H.265 ガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/highwinds-smil.html">強風SMILガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/html5-encoding.html">HTML5エンコーディング</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/http-live-segmented-streaming-and-playlists.html">HLS ストリーミングとプレイリスト</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/http-live-streaming-using-fragmented-mp4.html">断片化されたMP4を使用する HLS </a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/iosmobile-encoding.html">iOS/モバイルエンコーディングガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/microsoft-smooth-streaming.html">マイクロソフトスムーズストリーミング</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/using-quality-based-encoding-modes-streaming-video.html">ストリーミングの品質ベースのエンコードモード</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/vp6-advanced-guide.html">VP6アドバンスド・ガイド</a></li>
-                  
-                
-                  
-                    <li><a href="/encoding-guides/vp9-guide.html">VP9ガイド</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/error-troubleshooting/index.html">エラー/トラブルシューティング<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/error-troubleshooting/problems.html">一般的な問題</a></li>
-                  
-                
-                  
-                    <li><a href="/error-troubleshooting/region-outages.html">リージョンの停止</a></li>
-                  
-                
-                  
-                    <li><a href="/error-troubleshooting/when-should-i-retry-failed-jobs.html">失敗したジョブを再試行する時です</a></li>
-                  
-                
-                  
-                    <li class="submenu-header">
-                      <a href="/error-troubleshooting/error-codes/index.html">エラーコード<strong> + </strong></a>
-                      <ul class="sidenav-subsubmenu" style="display:none;">
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-akamainetstoragefilesizeerror.html">AkamainetStorageFileSizeError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-checksummismatcherror.html">checkSummisMatchErro</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-dimensiontoosmallerror.html">dimensionToosmaller</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadaccessdeniederror.html">ダウンロードAccessDeniederRor </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadfailureerror.html">ダウンロードFailureError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-downloadtimeouterror.html">ダウンロードTimeouTerror </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-filenotfounderror.html">filenotFounderRor </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">filePermanentlyMovedError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inaccuratedurationerror.html">不正確なDurationError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-incompatiblewithdynamicprofileserror.html">DynamicProfilesError と互換性がありません</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-inputfilenotfound.html">inputFileNotFound </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidaccesskeyiderror.html">無効AccessKeyidError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidaudiosettingserror.html">InvalidAudioSettingsError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidcodeccombinationerror.html">InvalidCodecCombinationError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invaliddownloadedfiletypeerror.html">InvalidDownloadedFileTypeError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidencryptionsettingserror.html">InvalidEncryptionSettingSerr</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidfilepatherror.html">invalidFilePathError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidformatcodecerror.html">InvalidFormatcodeError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidframerateerror.html">invalidFrameRateError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidusernameorpassworderror.html">無効UserNameOrpassworderRor </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideobitrateerror.html">InvalidVideoBitrateError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-invalidvideosettingserror.html">InvalidVideoSettingsError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-nomediaerror.html">nomediaError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-quicktimereferenceerror.html">クイックタイムリファレンス</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-remoteserverproblemerror.html">RemoteServerProblemError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpauthfailederror.html">rtmpAuthfailedError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpmaxstreamsxidreached.html">rtmpmaxStreamsXidLatしました</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-rtmpstreamnamealreadyinuse.html">rtmpStreamNameAlreadyinUse </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-s3bucketnotfounderror.html">S3bucketNotFounderRror </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-segmentingerror.html">SegmentingError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-skippedsourceerror.html">SkipedSourceError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-thumbnailerror.html">thumbnailError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transcodingerror.html">transcodingError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteegroupurlerror.html">転送። invalidGranteegroupurlError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-transferinvalidgranteeiderror.html">転送። InvalidGranteeEidError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-truncatedfileerror.html">truncatedFileError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unabletocreatedynamicprofileserror.html">UnabletoCreateDynamicProfilesエラー</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteddownloadproblemerror.html">downloadProblemErro</a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedffmpegresult.html">fredffmpeGresult </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedmplayerresult.html">tedmPlayerResult </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedprogenresult.html">portedProgenResult </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedresulterror.html">fretedResultError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpecteduploadproblemerror.html">teduploadProblemError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unexpectedx264result.html">tedx264result </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unreadablefileerror.html">readableFileError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedcodecerror.html">サポートされていないCodecError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencodingerror.html">unsupportedencodingError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedencryptionerror.html">サポートされていないEncryptionError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-unsupportedtranscodecombinationerror.html">unsupportedTranscodeComminationError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadaccessdeniederror.html">uploadAccessDeniedError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadfailureerror.html">uploadFailureError </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadservernotfounderror.html">uploadServerNotFounderRor </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-uploadtimeouterror.html">UploadTimeouTerror </a></li>
-                        
-                        <li><a href="/error-troubleshooting/error-codes/error-workertimeouterror.html">workerTimeouTerror </a></li>
-                        
-                      </ul>
-                    </li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/integration/index.html">統合<strong> + </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    <li><a href="/integration/faq-integration-libraries.html">統合ライブラリ</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/100-integration-reliability.html">100% 統合信頼性</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/test-jobs-and-integration-mode.html">テストジョブと統合モード</a></li>
-                  
-                
-                  
-                    <li><a href="/integration/using-read-only-api-keys.html">読み取り専用 API キーの使用</a></li>
-                  
-                
-              </ul>
-            
-          
-            
-              <h5 class="submenu-header"><a href="/support/index.html"><strong>サポート+ </strong></a></h5>
-              <ul class="sidenav-submenu" style="display:none;">
-                
-                  
-                    
-                  
-                
-                  
-                    <li><a href="/support/viewing-brightcove-system-status-page.html">Brightcove のシステムステータスページの表示</a></li>
-                  
-                
-                  
-                    <li><a href="/support/contact-sales.html">営業へのお問い合わせ</a></li>
-                  
-                
-                  
-                    <li><a href="/support/opening-case-with-brightcove-support.html">サポートケースを開く</a></li>
-                  
-                
-              </ul>
-            
-          
-      </nav>
-    </div>
-    <div class="col-lg-7" style="background-color: white;color: #333333;margin-top: -1em;margin-bottom: -1em;padding-bottom:1em;">
-  <!-- bootstrap layout -->
-
-<p id="bc_veggie_burger_wrapper" style="display: none;"><img id="bc_veggie_burger" src="/assets/images/feather/menu.svg" alt="ナビゲーションメニュー"/></p>
-
-<!-- search bar -->
-<div id="nav-search-box" style="margin-top: 1rem;"></div>
-<!-- in-page navigation for narrow screens -->
-<details class="centered-inpage-nav" id="centered_inpage_nav">
-  <summary><h6 class="toc">ページコンテンツ</h6></summary>
-  <nav id="centered_toc"></nav>
-  <ul id="centered_in_page_toc" class="list-none"></ul>
-</details>
-<!-- open in new tab/window -->
-<a id="open_new_tab" href="#" target="_blank" style="display: none;"><img src="/assets/images/feather/external-link.svg" alt="新しいタブで開く" style="margin-top:4em;width: 1.5em;"/></a>
-
-
-
-  
-    
-
-
-<h1>オーディオ設定</h1>
+---
+title: オーディオ設定
+description: このトピックでは、オーディオに関連するエンコーディング設定の詳細について説明します。
+parent: Audio/Video Settings 
+grandparent: Encoding Settings
+---
+ <h1>{{ page.title }}</h1>
   <article class="bcls-article">
-    <summary>このトピックには、オーディオに関連するエンコード設定の詳細が含まれています。</summary>
+    <summary>{{ page.description }}</summary>
     <section class="bcls-section">
       <h2 id="audio_sample_rate" translate="No">audio_sample_rate</h2>
       <code translate="No">audio_sample_rate:Integer</code>
 
-      <p><strong>APIバージョン：</strong>V1、V2</p>
+      <p><strong>API バージョン:</strong>V1、V2</p>
 
-      <p><strong>親：</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
+      <p><strong>親:</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
 
-      <p><strong>有効な値：</strong>有効なサンプルレート。コーデックによって異なります。通常8000、11025、12000、16000、22050、32000、44100、48000、96000</p>
+      <p><strong>有効な値:</strong>有効なサンプルレート。コーデックによって異なります。通常は 8000、11025、12000、16000、22050、32000、44100、48000、96000</p>
 
-      <p><strong>互換性のあるジョブタイプ：</strong> VOD</p>
+      <p><strong>互換性のあるジョブの種類:</strong> vod</p>
 
-      <p><strong>例：</strong>44100</p>
+      <p><strong>例:</strong>44100</p>
 
       <p><strong>説明:</strong></p>
 
-      <p>Hz単位のオーディオサンプルレート。</p>
+      <p>オーディオサンプルレート（Hz）。</p>
 
-      <p>正当な理由がある場合にのみ、この設定を使用することをお勧めします。出力サンプルレートを強制すると、予期しない問題が発生する可能性があります。<a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#audio_codec"> audio_codec</a>限られた範囲のサンプルレートのみをサポートし、各サンプルレートは限られた範囲のビットレートとのみ互換性があります。16kbpsで48KhzAAC、320kbpsで8000hzMP3をエンコードすることはできません。</p>
+      <p>この設定は、正当な理由がある場合にのみ使用することをお勧めします。出力サンプルレートを強制すると、予期しない問題が発生する可能性があります。たとえば、各<a href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#audio_codec"> audio_codec</a>は限られた範囲のサンプルレートのみをサポートし、各サンプルレートは限られた範囲のビットレートとのみ互換性があります。16kbpsで48KhzAAC、320kbpsで8000hzMP3をエンコードすることはできません。</p>
 
-      <p>&nbsp;</p>
+      <p> </p>
 
       <p>デフォルトでは、入力サンプルレートが使用されます（つまり、オーディオはリサンプリングされません）が、96000を超えるサンプルレートは最大96000に削減されます。</p>
 
-      <p>FLVビデオ<a translate="No" href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#format">format</a> 11025、22050、および44100のサンプルレートのみをサポートします。デフォルトでは、これらはFLVビデオにのみ使用され、他のサンプルレートはFLVと互換性のある最も近いレートに移動します。有効にする<code translate="No">strict_mode</code>互換性のないサンプルレートで、有効なsample_rateに自動修正するのではなく、ジョブが失敗するようにする場合。</p>
+      <p>FLV <a translate="No" href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#format">ビデオフォーマットは、11025、22050、および 44100</a>のサンプルレートのみをサポートします。デフォルトでは、これらはFLVビデオにのみ使用され、他のサンプルレートはFLVと互換性のある最も近いレートに移動します。有効な sample_rate に自動修正するのではなく、<code translate="No">strict_mode</code>互換性のないサンプルレートでジョブが失敗するようにする場合は、有効にします。</p>
 
       <pre class="line-numbers">
   <code class="language-json" translate="No">{
@@ -687,33 +43,33 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     ]
   }</code></pre>
 
-      <p><strong>関連項目：</strong><a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_bitrate">audio_bitrate</a>そして<a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_quality">audio_quality</a></p>
+      <p><strong>参照:</strong><a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_bitrate">audio_bitrate</a>と<a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_quality"> audio_Quality</a></p>
     </section>
     <section class="bcls-section">
       <h2 id="max_audio_sample_rate" translate="No">max_audio_sample_rate</h2>
       <code translate="No">max_audio_sample_rate:Integer</code>
 
-      <p><strong>APIバージョン：</strong>V1、V2</p>
+      <p><strong>API バージョン:</strong>V1、V2</p>
 
-      <p><strong>親：</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
+      <p><strong>親:</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
 
-      <p><strong>有効な値：</strong>有効なサンプルレート。コーデックによって異なります。通常8000、11025、12000、16000、22050、32000、44100、48000、96000</p>
+      <p><strong>有効な値:</strong>有効なサンプルレート。コーデックによって異なります。通常は 8000、11025、12000、16000、22050、32000、44100、48000、96000</p>
 
-      <p><strong>互換性のあるジョブタイプ：</strong>住む</p>
+      <p><strong>互換性のある職種:</strong>ライブ</p>
 
-      <p><strong>例：</strong>44100</p>
+      <p><strong>例:</strong>44100</p>
 
       <p><strong>説明:</strong></p>
 
-      <p>最大オーディオサンプルレート。をオーバーライドします<a translate="No" href="#audio_sample_rate">audio_sample_rate</a>サンプルレートが指定された数を超えないようにするための設定。</p>
+      <p>最大オーディオサンプルレート。<a translate="No" href="#audio_sample_rate">audio_sample_rate</a>の設定を上書きして、サンプルレートが指定された数を超えないようにします。</p>
 
-      <p>入力ビデオのサンプルレートが48000で、<code translate="No">max_audio_sample_rate</code>が22050に設定されている場合、オーディオを22050にリサンプリングします。サンプルレートが11025の場合は、そのままにしておきます。</p>
+      <p>入力ビデオのサンプルレートが 48000 で、が 22050 <code translate="No">max_audio_sample_rate</code>に設定されている場合は、オーディオを 22050 にリサンプリングします。サンプルレートが 11025 の場合は、そのままにします。</p>
 
-      <p>ターゲットの再生デバイスがより高いサンプルレートをサポートしていない場合は、このオプションを使用します。</p>
+      <p>このオプションは、ターゲット再生デバイスがより高いサンプルレートをサポートしていない場合に使用します。</p>
 
       <p>デフォルトでは、入力サンプルレートが使用されます（つまり、オーディオはリサンプリングされません）が、96000を超えるサンプルレートは最大96000に削減されます。</p>
 
-      <p>FLVビデオ<a translate="No" href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#format">format</a> 11025、22050、および44100のサンプルレートのみをサポートします。デフォルトでは、これらはFLVビデオにのみ使用され、他のサンプルレートはFLVと互換性のある最も近いレートに移動します。有効にする<code translate="No">strict_mode</code>互換性のないサンプルレートで、有効なsample_rateに自動修正するのではなく、ジョブが失敗するようにする場合。</p>
+      <p>FLV <a translate="No" href="/encoding-settings/formats-codecs/encoding-settings-format-and-codecs.html#format">ビデオフォーマットは、11025、22050、および 44100</a>のサンプルレートのみをサポートします。デフォルトでは、これらはFLVビデオにのみ使用され、他のサンプルレートはFLVと互換性のある最も近いレートに移動します。有効な sample_rate に自動修正するのではなく、<code translate="No">strict_mode</code>互換性のないサンプルレートでジョブが失敗するようにする場合は、有効にします。</p>
 
       <pre class="line-numbers">
   <code class="language-json" translate="No">{
@@ -725,29 +81,29 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     ]
   }</code></pre>
 
-      <p><strong>関連項目：</strong><a translate="No" href="#audio_sample_rate">audio_sample_rate</a>、<a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_bitrate">audio_bitrate</a>、および<a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_quality">audio_quality</a></p>
+      <p><strong>参照:</strong><a translate="No" href="#audio_sample_rate">audio_sample_rate</a>、<a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_bitrate"> audio_bitrate</a>、<a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_quality"> audio_Quality</a></p>
     </section>
     <section class="bcls-section">
       <h2 id="audio_channels" translate="No">audio_channels</h2>
       <code translate="No">audio_channels:Integer</code>
 
-      <p><strong>APIバージョン：</strong>V1、V2</p>
+      <p><strong>API バージョン:</strong>V1、V2</p>
 
-      <p><strong>親：</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
+      <p><strong>親:</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
 
-      <p><strong>デフォルト：</strong>元のファイルがモノラルの場合は1。それ以外の場合、2。</p>
+      <p><strong>デフォルト:</strong>元のファイルがモノの場合は 1、それ以外の場合は 2。</p>
 
-      <p><strong>有効な値：</strong>1、2、または6（6は、入力コンテンツに5.1構成で6つのチャネルがある場合にのみ有効です。<code> input_audio_channels</code>有効な5.1構成を提供します）</p>
+      <p><strong>有効な値：</strong>1、2、または 6 (6 は、入力コンテンツが 5.1 設定で 6 チャンネルがある場合、または<code translate="no"> input_audio_channels</code>が有効な5.1コンフィグを提供する場合にのみ有効です)</p>
 
       <p><strong>互換性のあるジョブタイプ：</strong>すべて</p>
 
-      <p><strong>例：</strong>1</p>
+      <p><strong>例:</strong>1</p>
 
       <p><strong>説明:</strong></p>
 
-      <p>使用するオーディオチャネルの数：1（モノラル）または2（ステレオ）。</p>
+      <p>使用するオーディオチャンネルの数:1（モノラル）または 2（ステレオ）。</p>
 
-      <p>モノラルAACオーディオは、検査時にステレオとして誤って自己報告する場合があることに注意してください。iTunesを使用して、AACオーディオの実際のチャンネル数を取得することをお勧めします。5.1チャンネルオーディオ出力もサポートされていることに注意してください。そのためには、<code translate="No"><a href="#output_audio_channels">output_audio_channels</a></code>代わりに。</p>
+      <p>モノラル AAC オーディオは、検査時に誤ってステレオとして自己報告することがあります。AAC オーディオの真のチャンネル数を得るには、iTunes を使用することをお勧めします。5.1チャンネルのオーディオ出力もサポートされます。そのために、<code translate="No"><a href="#output_audio_channels">output_audio_channels</a></code>代わりにとを使用します。</p>
 
       <pre class="line-numbers">
   <code class="language-json" translate="No">{
@@ -759,27 +115,27 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     ]
   }</code></pre>
 
-      <p><strong>関連項目：</strong><a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_bitrate">audio_bitrate</a>、<a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_quality">audio_quality</a>、<a href="#input_audio_channels"> input_audio_channels</a>、および<a href="#output_audio_channels">output_audio_channels</a></p>
+      <p><strong>参照:</strong><a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_bitrate">audio_bitrate</a>、<a translate="No" href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#audio_quality"> audio_Quality</a>、<a href="#input_audio_channels"> input_audio_channels</a>、<a href="#output_audio_channels">output_audio_channels</a></p>
     </section>
     <section class="bcls-section">
       <h2 id="audio_bit_depth" translate="No">audio_bit_depth</h2>
       <code translate="No">audio_bit_depth:Integer</code>
 
-      <p><strong>APIバージョン：</strong>V1、V2</p>
+      <p><strong>API バージョン:</strong>V1、V2</p>
 
-      <p><strong>親：</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
+      <p><strong>親:</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
 
-      <p><strong>デフォルト：</strong>16</p>
+      <p><strong>デフォルト:</strong>16</p>
 
-      <p><strong>有効な値：</strong>PCMの場合は16、24、32。他のすべての場合は16。</p>
+      <p><strong>有効な値:</strong>PCM の場合は 16、24、32、それ以外の場合は16。</p>
 
-      <p><strong>互換性のあるジョブタイプ：</strong>すべて</p>
+      <p><strong>互換性のあるジョブタイプ:</strong>すべて</p>
 
-      <p><strong>例：</strong>24</p>
+      <p><strong>例:</strong>24</p>
 
       <p><strong>説明:</strong></p>
 
-      <p>各サンプルのビット数：16、24、32。</p>
+      <p>各サンプルのビット数:16、24、32。</p>
 
       <pre class="line-numbers">
   <code class="language-json" translate="No">{
@@ -791,27 +147,27 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     ]
   }</code></pre>
 
-      <p><strong>関連項目：</strong><a translate="No" href="#audio_sample_rate">audio_sample_rate</a></p>
+      <p><strong>参照:</strong><a translate="No" href="#audio_sample_rate">audio_sample_rate</a></p>
     </section>
     <section class="bcls-section">
       <h2 id="audio_language" translate="No">audio_language</h2>
       <code translate="No">audio_language:String</code>
 
-      <p><strong>APIバージョン：</strong>V1、V2</p>
+      <p><strong>API バージョン:</strong>V1、V2</p>
 
-      <p><strong>親：</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
+      <p><strong>親:</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
 
-      <p><strong>有効な値：</strong>ISO639-1または639-2言語コード</p>
+      <p><strong>有効な値:</strong>ISO 639-1 または 639-2 言語コード</p>
 
-      <p><strong>互換性のあるジョブタイプ：</strong>すべて</p>
+      <p><strong>互換性のあるジョブタイプ:</strong>すべて</p>
 
-      <p><strong>例：</strong> en</p>
+      <p><strong>例:</strong> en</p>
 
       <p><strong>説明:</strong></p>
 
-      <p>出力のオーディオトラックの言語識別子を設定し、その言語コンテンツを説明します。ISO639-1またはISO639-2言語コード（それぞれ2文字または3文字）にすることができます。</p>
+      <p>出力のオーディオトラックの言語識別子を設定し、その言語の内容を記述します。ISO 639-1 または ISO 639-2 言語コード (それぞれ 2 文字または 3 文字) を使用できます。</p>
 
-      <p>注：現在、MP4、MKV、およびWEBM形式の出力、およびDASHストリーミング配信出力でサポートされています。</p>
+      <p>注:現在、MP4、MKV、および WEBM形式の出力と DASH ストリーミング配信出力でサポートされています。</p>
 
       <pre class="line-numbers">
   <code class="language-json" translate="No">{
@@ -827,28 +183,28 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <h2 id="input_audio_channels" translate="No">input_audio_channels</h2>
       <code translate="No">input_audio_channels:Hash</code>
 
-      <p><strong>APIバージョン：</strong>V1、V2</p>
+      <p><strong>API バージョン:</strong>V1、V2</p>
 
-      <p><strong>親：</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
+      <p><strong>親:</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
 
-      <p><strong>有効な値：</strong>チャネル識別子とトラックインデックス値のハッシュ。</p>
+      <p><strong>有効な値:</strong>チャネル識別子とトラックインデックス値のハッシュ。</p>
 
-      <p><strong>互換性のあるジョブタイプ：</strong>すべて</p>
+      <p><strong>互換性のあるジョブタイプ:</strong>すべて</p>
 
       <p><strong>例：</strong></p>
 
       <ul>
-        <li>{"FR"：1、 "FL"：2、 "FC"：3、 "BL"：4、 "BR"：5、 "LFE"：6}</li>
-        <li>{"DL"：7、 "DR"：8}</li>
-        <li>{"FL"： "1：1"、 "FR"： "1：2"}</li>
+        <li>{"FR":1,"FL":2,"FC":3,"BL":4,"BR":5,"LFE":6}</li>
+        <li>{"DL":7,"DR":8}</li>
+        <li>{"FL":"1:1","FR":"1:2"}</li>
       </ul>
       <p><strong>説明:</strong></p>
 
-      <p>入力のオーディオトラックとそれらのチャンネル識別子の間のマッピングを設定します。このオプションを使用して、複数のオーディオトラックを含む入力を取得し、出力に単一のオーディオトラックを作成できます。ハッシュのキーは有効なチャネル識別子である必要があり、値は入力のオーディオトラックインデックスに対応する整数である必要があります。</p>
+      <p>入力のオーディオトラックとチャンネル識別子の間のマッピングを設定します。このオプションを使用すると、複数のオーディオトラックを含む入力を取得し、出力に 1 つのオーディオトラックを作成できます。ハッシュのキーは有効なチャンネル識別子でなければならず、値は入力上のオーディオトラックインデックスに対応する整数である必要があります。</p>
 
-      <p>このオプションを使用して、追加のチャネルインデックスを指定することにより、入力から個々のチャネルを選択することもできます。たとえば、チャンネル識別子を「1：1」に設定すると、入力の最初のオーディオトラックの最初のチャンネルが選択されます。</p>
+      <p>このオプションは、追加のチャンネルインデックスを指定して、入力から個々のチャンネルを選択する場合にも使用できます。たとえば、チャンネル識別子を「1:1」に設定すると、入力の最初のオーディオトラックの最初のチャンネルが選択されます。</p>
 
-      <p>有効なオーディオチャネル識別子：「FL」、「FR」、「FC」、「LFE」、「BL」、「BR」、「DL」、「DR」。</p>
+      <p>有効なオーディオチャンネル識別子:「FL」、「FR」、「FC」、「LFE」、「BL」、「BR」、「DL」、「DR」。</p>
 
       <pre class="line-numbers">
   <code class="language-json" translate="No">{
@@ -871,35 +227,35 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
       <h2 id="output_audio_channels" translate="No">output_audio_channels</h2>
       <code translate="No">output_audio_channels:Array or Integer</code>
 
-      <p><strong>APIバージョン：</strong>V1、V2</p>
+      <p><strong>API バージョン:</strong>V1、V2</p>
 
-      <p><strong>親：</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
+      <p><strong>親:</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs"><code translate="No">outputs</code></a></p>
 
-      <p><strong>有効な値：</strong>出力オーディオチャネルの数を定義するチャネルレイアウトまたは整数。</p>
+      <p><strong>有効な値:</strong>出力オーディオチャンネルの数を定義するチャンネルレイアウトまたは整数。</p>
 
-      <p><strong>互換性のあるジョブタイプ：</strong>すべて</p>
+      <p><strong>互換性のあるジョブタイプ:</strong>すべて</p>
 
-      <p><strong>例：</strong></p>
+      <p><strong>例:</strong></p>
 
       <ul>
-        <li>["FL"、 "FR"、 "FC"、 "BL"、 "BR"、 "LFE"]</li>
+        <li>["FL」, "FR」, "FC」, "BL」, "BR」, "LFE"]</li>
         <li>2</li>
         <li>1</li>
-        <li>6（6は、入力コンテンツに5.1構成で6つのチャネルがある場合にのみ有効です。<code> input_audio_channels</code>有効な5.1構成を提供します）</li>
+        <li>6 (6 は、入力コンテンツが 5.1 コンフィグで 6 チャンネルを持っているか、<code translate="no"> input_audio_channels</code>が有効な5.1コンフィグを提供する場合にのみ有効です)</li>
       </ul>
       <p><strong>説明:</strong></p>
 
-      <p>と一緒にこれを使用してください<a href="#input_audio_channels">input_audio_channels</a>カスタム出力オーディオチャンネルレイアウトまたはミックスダウンを定義するオプション。</p>
+      <p>これを<a href="#input_audio_channels"> input_audio_channels</a>オプションとともに使用して、カスタム出力オーディオチャンネルレイアウトまたはミックスダウンを定義します。</p>
 
-      <p>このオプションには2つのモードがあります。1つはカスタムオーディオチャンネルレイアウトを指定するためのもので、もう1つはモノラルまたはステレオミックスダウンを指定するためのものです。</p>
+      <p>このオプションには 2 つのモードがあります。1 つはカスタムオーディオチャンネルレイアウトを指定するためのモードと、モノラルまたはステレオのミックスダウンを指定するモードです。</p>
 
-      <p>このオプションは、有効なチャネル識別子の配列または整数のいずれかです。ステレオミックスダウンを作成するには、このパラメーターを次のように設定します。<code translate="No">2</code>。モノラルミックスダウンを作成するには、このパラメーターを次のように設定します。<code translate="No">1</code>。</p>
+      <p>このオプションは、有効なチャネル識別子の配列または整数のいずれかになります。ステレオミックスダウンを作成するには、このパラメータをに設定します<code translate="No">2</code>。モノラルミックスダウンを作成するには、このパラメータをに設定します<code translate="No">1</code>。</p>
 
-      <p>有効なオーディオチャネル識別子： " <code translate="No">FL</code> "、" <code translate="No">FR</code> "、" <code translate="No">FC</code> "、" <code translate="No">LFE</code> "、" <code translate="No">BL</code> "、" <code translate="No">BR</code> "、" <code translate="No">DL</code> "、" <code translate="No">DR</code> "。</p>
+      <p>有効なオーディオチャンネル識別子:" <code translate="No">FL</code>「、" <code translate="No">FR</code>、" <code translate="No">FC</code>「、" <code translate="No">LFE</code> "、" "、<code translate="No">BL</code> "、" <code translate="No">BR</code>「、" <code translate="No">DL</code> "、" <code translate="No">DR</code> "。</p>
 
-      <p>このオプションを有効なチャネル識別子の配列に設定することにより、カスタムオーディオチャネルレイアウトを作成することができます。</p>
+      <p>このオプションを有効なチャンネル識別子の配列に設定することで、カスタムオーディオチャンネルレイアウトを作成できます。</p>
 
-      <p><strong>注意：</strong>このオプションは優先されます<a href="#audio_channels">audio_channels</a>。</p>
+      <p><strong>注:</strong>このオプションは、<a href="#audio_channels"> audio_channels よりも優先されます</a>。</p>
 
       <pre class="line-numbers">
   <code class="language-json" translate="No">{
@@ -926,131 +282,3 @@ function doGTranslate(lang_pair) {if(lang_pair.value)lang_pair=lang_pair.value;i
     ]
   }</code></pre>
     </section>
-<!-- complete bootstrap layout -->
-    </div>
-    <div class="col-sm-2 right-side-bar">
-      
-      <nav class="right-side-nav" id="right_side_nav">
-        <h6 class="toc">ページコンテンツ</h6>
-        <ul id="in_page_nav" class="list-none"></ul>
-      </nav>
-      
-    </div>
-  </div>
-</div>
-
-<hr>
-<footer class="bcls-footer" role="contentinfo">  <div class="row">
-    <div class="region region-footer-top-center col-md-12">
-      <nav role="navigation" aria-labelledby="block-brightcovesupport-menu" id="block-brightcovesupport" class="footer-menu">
-
-        <h2>Brightcove サポート</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://status.brightcove.com">システムステータス</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">サポートへのお問い合わせ</a>
-          </li>
-          <li>
-            <a href="https://support.brightcove.com/">ドキュメンテーション</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-training-menu" id="block-training" class="footer-menu">
-
-        <h2>トレーニング</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://studio.support.brightcove.com/training/online-training-courses.html">オンラインコース</a>
-          </li>
-          <li>
-            <a href="https://studio.support.brightcove.com/training/register-training.html">コースに登録する</a>
-          </li>
-          <li>
-            <a href="https://university.brightcove.com/">Brightcove University</a>
-          </li>
-        </ul>
-
-      </nav>
-      <nav role="navigation" aria-labelledby="block-brightcove-menu" class="footer-menu">
-
-        <h2>Brightcove</h2>
-
-        <ul class="menu">
-          <li>
-            <a href="https://www.brightcove.com">Brightcove.com</a>
-          </li>
-          <li>
-            <a href="https://supportportal.brightcove.com/s/login/?">お問合せ</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="region region-footer-bottom-center col-md-12">
-      <div class="bcls-copyright footer-menu">
-        <table>
-          <tr>
-            <td>
-              <div id="bc_copyright" class="field field--name-field-copyright-year field--type-string field--label-hidden field--item" style="float: left;"> Brightcove Inc. All rights reserved.</div>
-            </td>
-            <td><a href="https://www.brightcove.com/en/legal/privacy">プライバシー</a> | <a href="https://www.brightcove.com/en/terms-and-conditions">利用規約</a></td>
-            <td>
-              <div class="gf-links-cols footer-menu">
-                <div class="gf-social"><a href="https://www.linkedin.com/company/16439" title="LinkedIn" newtab="newtab" class="gf-social-linkedin"><i class="fab fa-linkedin-in" style="font-size: 1.5rem;"></i></a><a href="https://twitter.com/brightcove" title="Twitter" newtab="newtab" class="gf-social-twitter"><i class="fab fa-twitter" style="font-size: 1.5rem;"></i></a><a href="https://www.facebook.com/Brightcove" title="Facebook" newtab="newtab" class="gf-social-facebook"><i class="fab fa-facebook-f" style="font-size: 1.5rem;"></i></a>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-      
-  var searchBox = sajari.init({
-    mode: "search-box",
-    project: "1588255093746585379", // Set this to your project.
-    collection: "brightcove-documenation", // Set this to your collection.
-    instantPipeline: "autocomplete", // Pipeline used as you type
-    inputPlaceholder: "Search", // Input element placeholder
-    maxSuggestions: 5, // Maximum number of suggestions to show
-    attachSearchBox: document.getElementById("nav-search-box") // DOM element to attach to
-  });
-  
-    searchBox("sub", "pipeline.search-sent", function (_, query) {
-      window.location = "/search.html?q=" + encodeURIComponent(query.q);
-    });
-  
-
-</script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/https-fix.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/setDate.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/prism.js"></script>
-  
-  <script src="https://support.brightcove.com/site-assets/js/site/site.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/tabs.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/toc.js"></script>
-  <script src="/assets/js/sites_nav.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/bcls-utils.js"></script>
-  <script src="https://support.brightcove.com/site-assets/js/site/local-link-fix.js"></script>
-  <script src="/assets/js/feedback.js"></script>
-  
-  <script src="/assets/js/sajari-search-foot.js"></script>
-  
-  <!-- <script src="/assets/js/sajari-index.js"></script> -->
-  <!-- <script src="https://sdk.amazonaws.com/js/aws-sdk-2.677.0.min.js"></script> -->
-</body>
-
-</html>

@@ -1,0 +1,106 @@
+---
+title: AV1設定
+description: このトピックでは、AV1 ビデオ出力に関連するエンコード設定の詳細について説明します。
+parent: フォーマットとコーデック設定 
+grandparent: Encoding Settings
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="Encoding_recommendations">エンコードに関する推奨事項</h2>
+    <p>AV1 は、Open Media Video Alliance of Open Media Video のオープン、ロイヤリティフリー、次世代のビデオエンコーディングフォーマットです。HEVC、VP9、H.264コーデックに比べて大幅に低いビットレートで優れた品質を提供することができます。</p>
+
+    <p>詳細については、<a href="/encoding-guides/av1-guide.html"> AV1</a>ガイドを参照してください。また、<a href="https://zencoder.support.brightcove.com/encoding-guides/av1-guide.html#limitation"></a>現在のサポートの制限事項に特に注意してください。</p>
+    <p>このページにある設定に加えて、他の一般的なビデオ設定を含めることもできますが、次の設定は次のとおりです。<strong>いいえ</strong>現在サポートされている：</p>
+
+    <ul>
+      <li><code translate="No"><a href="/encoding-settings/general-audio-video/encoding-settings-video.html#video_reference_frames">video_reference_frames</a></code></li>
+      <li><code translate="No"><a href="/encoding-settings/general-audio-video/encoding-settings-video.html#video_bframes">video_bframes</a></code></li>
+      <li><code translate="No"><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#max_video_bitrate">max_video_bitrate</a></code></li>
+      <li><code translate="No"><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#quality">quality</a></code></li>
+      <li><code translate="No"><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#crf">crf</a></code></li>
+      <li><code translate="No"><a href="/encoding-settings/general-audio-video/encoding-settings-rate-control.html#decoder_bitrate_cap">decoder_bitrate_cap</a></code></li>
+    </ul>
+    <p>また、<a href="/encoding-settings/general-audio-video/encoding-settings-resolution.html">解像度設定</a>（<code translate="No">size</code><code translate="No">width</code>またはおよびを使用するかどうかにかかわらず）<code translate="No">height</code> ) <strong></strong>幅と高さはどちらも8の倍数でなければなりません。</p>
+  </section>
+  <section class="bcls-section">
+    <h2 translate="No" id="video_codec_level">video_codec_level</h2>
+    <code translate="No">video_codec_level:String</code>
+
+    <p><strong>API バージョン:</strong>V2</p>
+
+    <p><strong>親:</strong><a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">出力</a></p>
+
+    <p><strong>有効な値：</strong>
+      <ul>
+        <li>2.0</li>
+        <li>2.1</li>
+        <li>3.0</li>
+        <li>3.1</li>
+        <li>4.0</li>
+        <li>4.1</li>
+        <li>5.0</li>
+        <li>5.1</li>
+        <li>5.2</li>
+        <li>5.3</li>
+        <li>6.0</li>
+        <li>6.1</li>
+        <li>6.2</li>
+        <li>6.3</li>
+      </ul>
+  </p>   
+    
+    <p><strong>互換性のあるジョブタイプ:</strong>すべて</p>
+
+    <p><strong>例:</strong>4.1</p>
+
+    <p><strong>説明:</strong></p>
+
+    <p>ビットレートとコーディングツリー単位 (CTU) (AV1) を制限します。</p>
+    <p>この設定は、許可された値が異なる他のコーデックにも使用できます。<a href="/encoding-settings/general-audio-video/encoding-settings-video.html">ビデオエンコーディングの設定を参照してください</a>。</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "input": "s3://zencodertesting/test.mov",
+  "outputs": [
+    {
+      "video_codec_level": "5.1"
+    }
+  ]
+}</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 translate="No" id="video_codec_profile">codec_profile</h2>
+    <code translate="No">video_codec_profile:String</code>
+
+    <p><strong>API バージョン:</strong>V2</p>
+
+    <p><strong>親:</strong><a translate="No" href="/encoding-settings/general/encoding-settings-job.html#outputs">出力</a></p>
+
+    <p><strong>有効な値:</strong><code translate="No">main</code>、<code translate="No">high</code>、<code translate="No">professional</code></p>   
+    
+    <p><strong>デフォルト:</strong><code translate="No">main</code></p>
+
+    <p><strong>互換性のあるジョブタイプ:</strong>すべて</p>
+
+    <p><strong>例:</strong>4.1</p>
+
+    <p><strong>説明:</strong></p>
+
+    <p>エンコーディングプロファイルを設定します。</p>
+    <p>この設定は、許可された値が異なる他のコーデックにも使用できます。<a href="/encoding-settings/general-audio-video/encoding-settings-video.html">ビデオエンコーディングの設定を参照してください</a>。</p>
+
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "input": "s3://zencodertesting/test.mov",
+  "outputs": [
+    {
+      "video_codec_profile": "high"
+    }
+  ]
+}</code></pre>
+  </section>
+</article>

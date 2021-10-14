@@ -1,0 +1,70 @@
+---
+title: AV1ガイド
+description: このページでは、Zencoderを使用したAV1固有のエンコーディングについて説明します。AV1 コーデック自体は比較的新しく、毎日改善されているため、これはベータリリースです。
+parent: Encoding Guides
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="AV!_Overview">AV1の概要</h2>
+    <ul>
+      <li>AV1 は、Open Media Video Alliance of Open Media Video のオープン、ロイヤリティフリー、次世代のビデオエンコーディングフォーマットです。HEVC、VP9、H.264コーデックに比べて大幅に低いビットレートで優れた品質を提供することができます。</li>
+      <li>
+        AV1コーデックのサポートは、すべてのZencoderのお客様が利用できます。<aside class="bcls-aside bcls-aside--information">"ノート：プレミアムアカウントまたは契約をお持ちのお客様で、AV1 を試す場合は、アカウントマネージャーに連絡して、アカウントでこのコーデックを有効にしてください。</aside>
+      </li>
+      <li>現在<code translate="No">mp4</code>、<code translate="No">webm</code>およびコンテナは AV1 コーデックでサポートされています。</li>
+      <li>AV1の人気と使用量が増加するにつれて、オープンメディアの同盟によって新機能やコンテナが追加されます。今後、新しい機能が利用可能になりますので、追加する予定です。</li>
+      <li>詳細については、制限の一覧を参照してください。</li>
+    </ul>
+
+  </section>
+  <section class="bcls-section">
+    <h2 id="Specific_Options">特定のオプション</h2>
+    <ul>
+      <li>
+        <code translate="No">video_codec_level</code> : ビットレートとコーディングツリー単位 (CTU) を制約します。
+        <p>有効な値（を参照）<a href="https://en.wikipedia.org/wiki/AV1#Levels">この記事</a>これらの値に関連付けられている特定の出力値の場合）：</p>
+        <ul>
+          <li>2.0</li>
+          <li>2.1</li>
+          <li>3.0</li>
+          <li>3.1</li>
+          <li>4.0</li>
+          <li>4.1</li>
+          <li>5.0</li>
+          <li>5.1</li>
+          <li>5.2</li>
+          <li>5.3</li>
+          <li>6.0</li>
+          <li>6.1</li>
+          <li>6.2</li>
+          <li>6.3</li>
+        </ul>
+      </li>
+      <li><code translate="No">video_codec_profile</code> : エンコーディングプロファイルを設定します。現在サポートされている AV1 プロファイルは<code translate="No">main</code>、、<code translate="No">high</code><code translate="No">professional</code>およびです。デフォルト: <code translate="No">main</code>。</li>
+    </ul>
+  </section>
+  <section class="bcls-section">
+    <h2 id="limitation">制限事項</h2>
+    <p>次に、AV1 出力に対する電流制限を示します。</p>
+    <ul>
+      <li>現在、すべての AV1 エンコーディングはシングルパスのみです。</li>
+      <li>セグメント化/フラグメント化されたストリーミングファイル出力は、AV1 ではまだサポートされていません。</li>
+      <li>
+        次の設定はサポートされていません。
+        <ul>
+          <li><code translate="No">video_bframes</code></li>
+          <li><code translate="No">video_reference_frames</code></li>
+          <li><code translate="No">decoder_bitrate_cap</code> (decoder_buffer_size はサポートされています)</li>
+          <li><code translate="No">max_video_bitrate</code></li>
+          <li><code translate="No">quality</code></li>
+          <li><code translate="No">crf</code></li>
+          <li>8 (幅と高さ) の倍数ではない解像度</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+</article>

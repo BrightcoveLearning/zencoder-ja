@@ -1,0 +1,31 @@
+---
+title: フォレンジック透かしの
+description: このトピックでは、ブライトコーブの Zencoder のフォレンジック透かし機能の概要を説明します.
+parent: Encoding Guides
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+  <section class="bcls-section">
+    <h2 id="Introduction">はじめに</h2>
+    <p><a href="https://dtv.nagra.com/nexguard-forensic-watermarking"></a>ブライトコーブはNAGRAと提携し、Zencoderの機能としてフォレンジック透かしを提供しています。これにより、著作権侵害や不正なコンテンツ共有からプレミアムコンテンツを保護できます。この機能は、コンテンツリークの原因をすばやく特定するのにも役立ち、アクションを実行できます。</p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="Setup">セットアップ</h2>
+    <p>Brightcoveのフォレンジック透かしソリューションをサポートするには、次の設定が必要です。</p>
+    <ol class="bcls-tasklist-restart">
+      <li>
+        アカウントマネージャーに連絡してください：
+        <ol>
+          <li>アカウントでフォレンジック透かしを有効にします。これは、VideoCloudへの有料アドオンです。</li>
+        </ol>
+      </li>
+      <li><a href="https://dtv.nagra.com/nexguard-forensic-watermarking">NAGRAからライセンスキーを入手してください</a>。</li>
+    </ol>
+  </section>
+  <section class="bcls-section">
+    <h2 id="implementation">実装</h2>
+    <p>Zencoder でフォレンジックウォーターマークを使用して出力を生成するには、ビデオごとに 2 つの出力、出力<strong translate="no"> A</strong>と<strong translate="no"> B を指定する必要があります</strong>。また、可視フォレンジックウォーターマークを作成して統合をテストできるテストモードもあります。</p>
+    <p>ジョブ設定の詳細は、<a href="/encoding-settings/content-protection/encoding-settings-forensic-watermarking.html">フォレンジック・ウォーターマーク設定を参照してください</a>。</p>
+  </section>
+</article>

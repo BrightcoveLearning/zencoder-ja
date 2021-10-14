@@ -1,0 +1,152 @@
+---
+title: フォーマットとコーデック設定
+description: このトピックでは、ビデオフォーマットとコーデックに関連するエンコーディング設定の詳細について説明します。
+parent: フォーマットとコーデック設定 
+grandparent: Encoding Settings
+layout: staging
+---
+ <h1>{{ page.title }}</h1>
+<article class="bcls-article">
+  <summary>{{ page.description }}</summary>
+
+  <section class="bcls-section">
+    <h2 id="format">形式</h2>
+    <code translate="No">format:String</code>
+
+    <p><strong>API バージョン:</strong>V1、V2</p>
+
+    <p><strong>親:</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs">出力</a></p>
+
+    <p><strong>デフォルト:</strong>出力ファイル名、およびビデオコーデックまたはオーディオコーデックによって決定されます。それ以外の場合:mp4 (標準出力の場合); ts (セグメント出力の場合)。</p>
+
+    <p><strong>有効な値:</strong>3gp、aac、ac3、ec3、flv、m4f、mj2、mkv、mp3、mp4、mxf、ogg、TS、webm、wmv</p>
+
+    <p><strong>互換性のあるジョブタイプ:</strong>すべて</p>
+
+    <p><strong>例:</strong> webm</p>
+
+    <p><strong>説明:</strong></p>
+
+    <p>使用する出力コンテナ形式。</p>
+
+    <p>コンテナによっては、複数の有効なファイル拡張子があることに注意してください。通常、オーディオ/ビデオファイルには「f4v」、「ogv」、「m4v」などの名前が使用され、「f4a」、「m4a」、「oga」はオーディオのみのファイルに使用されますが、これは強制されません。同様に、「f4v」と「f4a」は、Flash Videoで再生するように設計されたmp4コンテンツによく使用されますが、これは単なる慣習です。</p>
+
+    <p>互換性:</p>
+
+    <ul>
+      <li>mp4 は<code translate="No">h264</code> (デフォルト)、<code translate="No">hevc</code><code translate="No">mpeg4</code>、およびと互換性があります。<code translate="No">AV1</code>ビデオ、aac（デフォルト）、mp3、ac3、eac3 オーディオ。有効な値とファイル拡張子：mp4、m4a、m4v、f4v、f4a、m4b、m4r、f4b</li>
+      <li><code translate="No">h264</code><code translate="No">hevc</code> m4fはおよびビデオ、aac、ac3、eac3オーディオと互換性があります。</li>
+      <li>ogg <code translate="No">theora</code>はビデオおよび vorbis オーディオと互換性があります。有効な値とファイル拡張子:ogg、oga、ogv、ogx</li>
+      <li>webm は、vp8 (デフォルト)、vp9、AV1 ビデオおよび vorbis オーディオと互換性があります。有効な値とファイル拡張子:webm</li>
+      <li>3gpは<code translate="No">mpeg4</code>（デフォルト）<code translate="No">h264</code>とビデオ、aac（デフォルト）とmp3オーディオと互換性があります。有効な値とファイル拡張子:3gp、3gp2、3g2、3gpp、3gpp2。3gp形式では、mp4ファイル拡張子を使用することもできます。</li>
+      <li>flvはvp6（デフォルト）<code translate="No">h264</code>とビデオ、aac（デフォルト）とmp3オーディオと互換性があります。有効な値とファイル拡張子:flv</li>
+      <li>ts は、<code translate="No">h264</code>ビデオと aac（デフォルト）、mp3 または ac3 オーディオと互換性があります。有効な値とファイル拡張子:ts</li>
+      <li><code translate="No">h264</code> mkvはビデオとaac（デフォルト）、mp3、ac3、またはeac3オーディオと互換性があります。有効な値とファイル拡張子:mkv</li>
+      <li>wmv は、wmv ビデオと wma (デフォルト) または mp3 オーディオと互換性があります。有効な値とファイル拡張子:wmv、wma</li>
+      <li>aacはaacオーディオと互換性があり、ビデオはありません。有効な値とファイル拡張子:aac</li>
+      <li>mp3はmp3オーディオと互換性があり、ビデオはありません。有効な値とファイル拡張子:mp3</li>
+      <li>ac3 は ac3 オーディオと互換性があり、ビデオはありません。有効な値とファイル拡張子:ac3</li>
+      <li>ec3 は eac3 オーディオと互換性があり、ビデオはありません。有効な値とファイル拡張子:ec3</li>
+      <li>mj2 <code translate="No">jp2</code>はビデオおよび aac オーディオと互換性があります。有効な値とファイル拡張子:mj2、mjp2。</li>
+      <li>mxf <code translate="No">h264</code>はビデオおよび PCM オーディオと互換性があります。有効な値とファイル拡張子:mxf。</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "input": "s3://zencodertesting/test.mov",
+  "outputs": [
+    {
+      "format": "webm"
+    }
+  ]
+}</code></pre>
+  </section>
+  <section class="bcls-section">
+    <h2 id="video_codec">video_codec</h2>
+    <code translate="No">video_codec:String</code>
+
+    <p><strong>API バージョン:</strong>V1、V2</p>
+
+    <p><strong>親:</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs">出力</a></p>
+
+    <p><strong>デフォルト:</strong>フォーマット、プロファイル、または<a href="#audio_codec"> audio_codec</a>によって決定されます。<code translate="No">h264</code>何も指定されていない場合。</p>
+
+    <p><strong>有効な値:</strong><code translate="No">h264</code>、<code translate="No">hevc</code>、<code translate="No">av1</code> , <code translate="No">jp2</code> , <code translate="No">mpeg4</code><code translate="No">theora</code> , vp6,vp8、vp9、wmv</p>
+
+    <p><strong>互換性のあるジョブタイプ:</strong>すべて</p>
+
+    <p><strong>例:</strong> vp8</p>
+
+    <p><strong>説明:</strong></p>
+
+    <p>使用する出力ビデオコーデック。Zencoder は現在、以下のコーデックをサポートしています。<code translate="No">h264</code> (デフォルト)、<code translate="No">hevc</code>、<code translate="No">jp2</code>、<code translate="No">theora</code>、<code translate="No">vp6</code>、<code translate="No">vp8</code>、<code translate="No">vp9</code>、<code translate="No">mpeg4</code>、、<code translate="No">wmv</code>。</p>
+
+    <p>互換性:</p>
+
+    <ul>
+      <li></li>
+      <li><code translate="No">h264</code>は<code translate="No">aac</code>（デフォルト）<code translate="No">mp3</code>とオーディオと互換性があり、<code translate="No">mp4</code> (デフォルト)、<code translate="No">m4f</code>、<code translate="No">flv</code>、または<code translate="No">3gp</code>フォーマット</li>
+      <li>hevc は ac (デフォルト) または MP3 オーディオと mp4 または m4f フォーマットと互換性があります。</li>
+      <li>vp9はvorbisオーディオとwebmフォーマットと互換性がある</li>
+      <li>vp8はvorbisオーディオとwebmフォーマットと互換性がある</li>
+      <li>vp6 は mp3 (デフォルト) または ac オーディオと互換性があり、FLV 形式</li>
+      <li>theoraはvorbisオーディオとoggフォーマットと互換性があります</li>
+      <li>mpeg4 は ac (デフォルト) および mp3 オーディオ、および mp4 (デフォルト) または 3gp フォーマットと互換性があります。</li>
+      <li>wmv は、wma (デフォルト) または mp3 オーディオと互換性があり、wmv 形式</li>
+      <li>jp2 は、PCM オーディオと mj2 フォーマットと互換性があります。</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "input": "s3://zencodertesting/test.mov",
+  "outputs": [
+    {
+      "video_codec": "vp8"
+    }
+  ]
+}</code></pre>
+
+    <p><strong>参照:</strong><a href="#audio_codec">audio_codec </a><a href="#format">とフォーマット</a></p>
+  </section>
+  <section class="bcls-section">
+    <h2 id="audio_codec">audio_codec</h2>
+    <code translate="No">audio_codec:String</code>
+
+    <p><strong>API バージョン:</strong>V1、V2</p>
+
+    <p><strong>親:</strong><a href="/encoding-settings/general/encoding-settings-job.html#outputs">出力</a></p>
+
+    <p><strong>デフォルト:</strong>形式、プロファイル、または<a href="#video_codec"> video_codec</a>によって決定されます。提供されていない場合は aac。</p>
+
+    <p><strong>有効値：</strong> aac、ac3、amr、av1、eac3、mp3、pcm、vorbis、およびwma</p>
+
+    <p><strong>互換性のあるジョブタイプ:</strong>すべて</p>
+
+    <p><strong>例:</strong> mp3</p>
+
+    <p><strong>説明:</strong></p>
+
+    <p>使用するオーディオコーデック。デフォルトのコーデックは、選択したビデオコーデックと形式によって異なります。</p>
+
+    <p>MP4 コンテナ内の MP3 オーディオは H.264 ビデオコンテンツとともに有効ですが、Quicktime では再生されません。</p>
+
+    <p>互換性:</p>
+
+    <ul>
+      <li><code translate="No">h264</code> aacはビデオ（mp4、m4f、3gp、またはflv形式）、<code translate="No">mpeg4</code>ビデオ（mp4または3gp形式）、vp6（flv形式）と互換性がある</li>
+      <li>vorbisはvp8ビデオ（webmフォーマット）<code translate="No">theora</code>とビデオ（ogg形式）と互換性があります</li>
+      <li>wmaはwmvビデオとwmvフォーマットと互換性がある</li>
+      <li><code translate="No">h264</code> mp3はビデオ（mp4、3gp、またはflv形式）およびwmvビデオ（wmvフォーマット）と互換性がある。mp3 <code translate="No">h264</code>、およびmp4はQuicktimeで再生されない</li>
+      <li>pcm <code translate="No">h264</code>はビデオおよび mxf フォーマットと互換性があります。</li>
+    </ul>
+    <pre class="line-numbers">
+<code class="language-json" translate="No">{
+  "input": "s3://zencodertesting/test.mov",
+  "outputs": [
+    {
+      "audio_codec": "mp3"
+    }
+  ]
+}</code></pre>
+
+    <p><strong>参照:</strong><a href="#audio_codec">audio_codec </a><a href="#format">とフォーマット</a></p>
+  </section>
+</article>
