@@ -24,19 +24,19 @@ parent: Encoding Guides
     <p><strong><code translate="No"><a href="/encoding-settings/general-audio-video/encoding-settings-video.html#video-bframes">video_bframes</a></code></strong> :HEVC に使用される連続した bframe の数を制限します。デフォルト:3.</p>
     <p><strong><code translate="No"><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#tuning">tuning</a></code></strong> :特定のエンコーディング優先順位に合わせて最適化するように出力ビデオをチューニングします。<code translate="No">HEVC</code>ビデオの場合、<code translate="No">tuning</code>の許容値は次のとおりです。</p>
     <ul>
-      <li>グレイン-穀物のレベルが高いフィルム用に最適化されています。</li>
+      <li>グレイン-グレインのレベルが高いフィルム用に最適化されています。</li>
       <li>psnr-「ピーク信号対雑音比」を使用してビデオ品質を最適化します。</li>
       <li>ssim-「構造的類似性」を使用してビデオ品質を最適化します。</li>
       <li>fastdecode-エンコードの複雑さを軽減し、復号化を容易にします。</li>
       <li>zerolatency-x265 はフレームの内部バッファを保持して品質を向上させます。この設定では、そのバッファは削除されますが、品質は低下します。</li>
     </ul>
-    <p><strong><code translate="No"><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#crf">crf</a></code></strong> :CRF はビットレート制御設定であり、一定のレート係数を設定します。Zencoder Quality の設定は、特定のビデオに対して適切な CRF を決定します。したがって、[品質] と [CRF] の両方を設定した場合、CRF 設定は品質を上書きします。有効な値は 0 ～ 51 で、値が小さいほど品質が高くなります。一般的に言えば、16を下回る必要はありません。ほとんどのファイルでは16はほぼロスレスです。24前後は通常かなり良さそうだ。35前後はかなり圧縮されているように見えます。</p>
+    <p><strong><code translate="No"><a href="/encoding-settings/formats-codecs/encoding-settings-h264.html#crf">crf</a></code></strong> :CRF はビットレート制御設定であり、一定のレート係数を設定します。Zencoder Quality の設定は、特定のビデオに対して適切な CRF を決定します。したがって、[品質] と [CRF] の両方を設定した場合、CRF 設定は品質を上書きします。有効な値は 0 ～ 51 で、値が小さいほど品質が高くなります。一般的に言えば、16を下回る必要はありません。ほとんどのファイルでは16はほぼロスレスです。24前後は通常かなり良く見え、35前後はかなり圧縮されているように見えます。</p>
 
   </section>
   <section class="bcls-section">
     <h2 id="sample_hvec_mp4">サンプル:HEVC + MP4</h2>
 
-    <p>以下は、HVEC をサポートしていないクライアントに対して、追加の MP4 出力とともに HEVC 出力 (mp4 としてマルチング) を作成するジョブの設定例を示しています。</p>
+    <p>以下は、HVEC をサポートしていないクライアントに対して、追加の MP4 出力とともに HEVC 出力 (mp4 として多重化) を作成するジョブの設定例を示しています。</p>
 
     <pre class="line-numbers">
 <code class="language-json" translate="No">{
